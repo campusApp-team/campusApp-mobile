@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">campusApp</string>
+    <string name="tab_text_1">forum</string>
+    <string name="tab_text_2">projects</string>
+    <string name="tab_text_3">events</string>
+</resources>

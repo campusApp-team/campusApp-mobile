@@ -1,10 +1,13 @@
 package com.example.campusapp.ui.main
 
+import android.content.Context
+import android.util.Log
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import com.example.campusapp.R
 import com.example.campusapp.backend.Firestore
 
@@ -24,8 +27,10 @@ class ProjectsRecyclerViewAdapter(
 ) : RecyclerView.Adapter<ProjectsRecyclerViewAdapter.ViewHolder>() {
     private var mDoc: List<DocumentSnapshot> = listOf()
     private val mOnClickListener: View.OnClickListener
+    var i = 0
 
     init {
+        i+=1
         mDoc = Firestore.getProjects(this)
         mOnClickListener = View.OnClickListener { v ->
             val item = v.tag as String
@@ -41,12 +46,13 @@ class ProjectsRecyclerViewAdapter(
         return ViewHolder(view)
     }
 
-//    each project views are populated in onBindViewHolder method
+    //    each project views are populated in onBindViewHolder method
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = mDoc[position]
         holder.mId = item.id
         holder.mTitle.text = item.getString("title")
         holder.mDescription.text = item.getString("description")
+        Log.d("ProjRecAdapter","onBind $position ${holder.mTitle.text}")
 
         with(holder.mView) {
             tag = item.id

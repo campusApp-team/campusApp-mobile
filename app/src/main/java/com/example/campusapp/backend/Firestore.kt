@@ -15,7 +15,7 @@ object Firestore {
     private const val FORUMS = "forums"
     const val PROJECTS = "projects"
 
-    const val LOGTAG = "test"
+    const val TAG = "firestore"
     // create extra logtags when needed
 
 /*
@@ -109,35 +109,20 @@ object Firestore {
     private fun loadProjectsData(f: ProjectsRecyclerViewAdapter){
         //  TODO 1 retrieve data : list of projects
         db.collection(PROJECTS)
-            .get()
-            .addOnSuccessListener { result ->
-                for (document in result) {
-                    Log.d(LOGTAG, "${document.id} => ${document.data}")
-                }
-                projectsDocSnap = result.documents
-                f.notifyDataSetChanged()
-            }
-            .addOnFailureListener { exception ->
-                Log.d(LOGTAG, "Error getting documents: ", exception)
-            }
-/*
             .addSnapshotListener { value, e ->
                     if (e != null) {
-                        Log.w(LOGTAG, "Listen failed.", e)
+                        Log.w(TAG, "Listen failed.", e)
                         return@addSnapshotListener
                     }
                     if(value != null){
+                        projectsDocSnap = listOf<DocumentSnapshot>()
+
                         projectsDocSnap = value.documents
-                        val projects = ArrayList<String>()
                         for (doc in value) {
-                            doc.getString("title")?.let {
-                                projects.add(it)
-                            }
+                            Log.d(TAG,"${doc.id} -> ${doc.get("title")}")
                         }
-                        Log.d("test", "Current projects at server: $projects")
                         f.notifyDataSetChanged()
                     }
             }
-*/
     }
 }

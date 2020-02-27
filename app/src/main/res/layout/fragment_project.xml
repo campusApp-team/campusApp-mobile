@@ -3,8 +3,8 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="vertical">
-<!--TODO Thanveer 1: Design the CardView for project catalogue-->
-<!--    ref:
+<!--TODO Thanveer : Design the list_item for project catalogue-->
+<!--ref:
     https://in.pinterest.com/pin/6544361936816272/
     https://material.io/components/cards/
 -->

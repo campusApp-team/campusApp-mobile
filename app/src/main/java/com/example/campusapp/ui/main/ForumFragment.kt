@@ -6,20 +6,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.campusapp.R
 
 /**
  * A fragment representing a list of Items.
  * Activities containing this fragment MUST implement the
- * [ProjectFragment.OnListFragmentInteractionListener] interface.
+ * [ForumFragment.OnListFragmentInteractionListener] interface.
  */
-class ProjectFragment : Fragment() {
+class ForumFragment : Fragment() {
 
-    // Customize parameters_todo
+    // TOD: Customize parameters
     private var columnCount = 2
+
     private var listener: OnListFragmentInteractionListener? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,16 +35,16 @@ class ProjectFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_project_list, container, false)
+        val view = inflater.inflate(R.layout.forum_list, container, false)
 
         // Set the adapter
         if (view is RecyclerView) {
             with(view) {
                 layoutManager = when {
                     columnCount <= 1 -> LinearLayoutManager(context)
-                    else -> GridLayoutManager(context, columnCount)
+                    else -> StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL)//GridLayoutManager(context, columnCount)
                 }
-                adapter = ProjectsRecyclerViewAdapter( listener)
+                adapter = ForumsRecyclerViewAdapter(listener)
             }
         }
         return view
@@ -54,7 +55,7 @@ class ProjectFragment : Fragment() {
         if (context is OnListFragmentInteractionListener) {
             listener = context
         } else {
-            throw RuntimeException("$context must implement OnListFragmentInteractionListener")
+            throw RuntimeException(context.toString() + " must implement OnListFragmentInteractionListener")
         }
     }
 
@@ -71,9 +72,11 @@ class ProjectFragment : Fragment() {
      *
      * See the Android Training lesson
      * [Communicating with Other Fragments](http://developer.android.com/training/basics/fragments/communicating.html)
+     * for more information.
      */
     interface OnListFragmentInteractionListener {
-        fun onProjectFragmentInteraction(id: String)
+        // TOD Update argument type and name
+        fun onForumFragmentInteraction(id: String)
     }
 
     // ithinte onnum aavashyilla....pinne oyvaakkaam
@@ -83,7 +86,7 @@ class ProjectFragment : Fragment() {
         // TOD Customize parameter initialization
         @JvmStatic
         fun newInstance(columnCount: Int) =
-            ProjectFragment().apply {
+            ForumFragment().apply {
                 arguments = Bundle().apply {
                     putInt(ARG_COLUMN_COUNT, columnCount)
                 }

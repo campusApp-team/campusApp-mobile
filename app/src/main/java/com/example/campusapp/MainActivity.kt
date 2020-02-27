@@ -4,13 +4,14 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
+import com.example.campusapp.ui.main.ForumFragment
 import com.example.campusapp.ui.main.ProjectFragment
 import com.example.campusapp.ui.main.SectionsPagerAdapter
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayout
 
-class MainActivity : ProjectFragment.OnListFragmentInteractionListener,AppCompatActivity() {
+class MainActivity : AppCompatActivity(),ProjectFragment.OnListFragmentInteractionListener,ForumFragment.OnListFragmentInteractionListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,7 +29,12 @@ class MainActivity : ProjectFragment.OnListFragmentInteractionListener,AppCompat
         }
     }
 
-    override fun onListFragmentInteraction(id: String) {
-        Toast.makeText(this,"-todo-",Toast.LENGTH_SHORT).show()
+    override fun onForumFragmentInteraction(id: String) {
+        Toast.makeText(this,"todo : Forum Clicked",Toast.LENGTH_SHORT).show()
     }
+
+    override fun onProjectFragmentInteraction(id: String) {
+        Toast.makeText(this,"todo : Project Clicked",Toast.LENGTH_SHORT).show()
+    }
+
 }

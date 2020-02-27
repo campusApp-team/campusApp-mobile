@@ -11,14 +11,14 @@ object Firestore {
 
 //    private var forumsDocSnap: List<DocumentSnapshot> = listOf()
     private var projectsDocSnap: List<DocumentSnapshot> = listOf()
-    private const val FORUMS = "forums"
-    const val PROJECTS = "projects"
+    const val FORUMS_COLLECTION = "forums"
+    const val PROJECTS_COLLECTION = "projects"
+//    TODO 1 : Implement Events Fragment
 
     const val TAG = "firestore"
     // create extra logtags when needed
 
 /*
-    //    TODO 3 create forums fragment
     fun getForums(f: ForumsListViewAdapter): ArrayList<DocumentSnapshot>? {
         if (forumsDocSnap==null || forumsDocSnap!!.size == 0) {
             loadForums(f)
@@ -69,7 +69,6 @@ object Firestore {
                     }
                 })
     }
-//    TODO 2 create forums->messages fragment
     fun loadForumMessages(id:String, fragAdapter: MessageRecyclerViewAdapter):ArrayList<DocumentSnapshot>{
         val msgDocSnapshot: ArrayList<DocumentSnapshot> = ArrayList()
 
@@ -101,9 +100,9 @@ object Firestore {
 */
 
     fun getProjects(f: ProjectsRecyclerViewAdapter): List<DocumentSnapshot>? {
-        //  TODO 5 data retrieval works fine, but its not passed to fragment.
+        //  TODO 11 data retrieval works fine, but its not passed to fragment.
         projectsDocSnap = listOf()
-        db.collection(PROJECTS)
+        db.collection(PROJECTS_COLLECTION)
             .addSnapshotListener { value, e ->
                 if (e != null) {
                     Log.w(TAG, "Listen failed.", e)

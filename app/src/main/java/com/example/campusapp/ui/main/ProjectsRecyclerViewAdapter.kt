@@ -1,20 +1,17 @@
 package com.example.campusapp.ui.main
 
-import android.content.Context
+
 import android.util.Log
-import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
+import androidx.recyclerview.widget.RecyclerView
 import com.example.campusapp.R
 import com.example.campusapp.backend.Firestore
-
-
 import com.example.campusapp.ui.main.ProjectFragment.OnListFragmentInteractionListener
 import com.google.firebase.firestore.DocumentSnapshot
-
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.fragment_project.view.*
 
 /**
@@ -27,15 +24,31 @@ class ProjectsRecyclerViewAdapter(
 ) : RecyclerView.Adapter<ProjectsRecyclerViewAdapter.ViewHolder>() {
     private var mDoc: List<DocumentSnapshot> = listOf()
     private val mOnClickListener: View.OnClickListener
-    var i = 0
+    private val db: FirebaseFirestore = FirebaseFirestore.getInstance()
+
+    val TAG = "ProjectsRecycler"
 
     init {
-        i+=1
-        mDoc = Firestore.getProjects(this)
+//        mDoc = Firestore.getProjects(this)
+        // Retrieve data (list of active projects) from firestore database
+        db.collection(Firestore.PROJECTS)
+            .addSnapshotListener { value, e ->
+                if (e != null) {
+                    Log.w(TAG, "Listen failed.", e)
+                    return@addSnapshotListener
+                }
+                if(value != null){
+                    mDoc = value.documents
+                    for (doc in value) {
+                        Log.d(TAG,"${doc.id} -> ${doc.get("title")}")
+                    }
+                    this.notifyDataSetChanged()
+                }
+            }
+
+        // Notify the active callbacks interface (the activity) that an item has been selected.
         mOnClickListener = View.OnClickListener { v ->
             val item = v.tag as String
-            // Notify the active callbacks interface (the activity, if the fragment is attached to
-            // one) that an item has been selected.
             mListener?.onListFragmentInteraction(item)
         }
     }

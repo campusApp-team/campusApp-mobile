@@ -2,26 +2,19 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
-<!--TODO Thanveer 1: Design the CardView for project catalogue-->
-<!--    ref:
-    https://in.pinterest.com/pin/6544361936816272/
-    https://material.io/components/cards/
--->
+    android:orientation="horizontal">
+
     <TextView
-        android:id="@+id/project_title"
+        android:id="@+id/item_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="24dp"
-        android:text="campusApp"
         android:layout_margin="@dimen/text_margin"
         android:textAppearance="?attr/textAppearanceListItem" />
 
     <TextView
-        android:id="@+id/project_description"
+        android:id="@+id/content"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/text_margin"
-        android:text="descriptions goes here"
         android:textAppearance="?attr/textAppearanceListItem" />
 </LinearLayout>

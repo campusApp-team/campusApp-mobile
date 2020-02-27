@@ -1,17 +1,16 @@
 package com.example.campusapp.backend
 
 import android.util.Log
-
 import com.example.campusapp.ui.main.ProjectsRecyclerViewAdapter
-import com.google.firebase.firestore.*
+import com.google.firebase.firestore.DocumentSnapshot
+import com.google.firebase.firestore.FirebaseFirestore
 
-import java.util.ArrayList
-
+// this class is indented to do backend queries. Currently not working!
 object Firestore {
     val db:FirebaseFirestore = FirebaseFirestore.getInstance()
 
-    private var forumsDocSnap: List<DocumentSnapshot> = listOf<DocumentSnapshot>()
-    private var projectsDocSnap: List<DocumentSnapshot> = listOf<DocumentSnapshot>()
+//    private var forumsDocSnap: List<DocumentSnapshot> = listOf()
+    private var projectsDocSnap: List<DocumentSnapshot> = listOf()
     private const val FORUMS = "forums"
     const val PROJECTS = "projects"
 
@@ -101,28 +100,23 @@ object Firestore {
     }
 */
 
-    fun getProjects(f: ProjectsRecyclerViewAdapter): List<DocumentSnapshot> {
-        loadProjectsData(f)
-        return projectsDocSnap
-    }
-
-    private fun loadProjectsData(f: ProjectsRecyclerViewAdapter){
-        //  TODO 1 retrieve data : list of projects
+    fun getProjects(f: ProjectsRecyclerViewAdapter): List<DocumentSnapshot>? {
+        //  TODO 5 data retrieval works fine, but its not passed to fragment.
+        projectsDocSnap = listOf()
         db.collection(PROJECTS)
             .addSnapshotListener { value, e ->
-                    if (e != null) {
-                        Log.w(TAG, "Listen failed.", e)
-                        return@addSnapshotListener
+                if (e != null) {
+                    Log.w(TAG, "Listen failed.", e)
+                    return@addSnapshotListener
+                }
+                if (value != null) {
+                    projectsDocSnap = value.documents
+                    for (doc in value) {
+                        Log.d(TAG, "${doc.id} -> ${doc.get("title")}")
                     }
-                    if(value != null){
-                        projectsDocSnap = listOf<DocumentSnapshot>()
-
-                        projectsDocSnap = value.documents
-                        for (doc in value) {
-                            Log.d(TAG,"${doc.id} -> ${doc.get("title")}")
-                        }
-                        f.notifyDataSetChanged()
-                    }
+                    f.notifyDataSetChanged()
+                }
             }
+        return projectsDocSnap
     }
 }

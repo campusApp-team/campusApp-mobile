@@ -5,13 +5,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.campusapp.R
-import com.example.campusapp.backend.Firestore
 
 /**
  * A fragment representing a list of Items.
@@ -75,15 +73,13 @@ class ProjectFragment : Fragment() {
      * [Communicating with Other Fragments](http://developer.android.com/training/basics/fragments/communicating.html)
      */
     interface OnListFragmentInteractionListener {
-        // TODO 9 Update argument type and name
-        fun onListFragmentInteraction(id: String)
+        fun onProjectFragmentInteraction(id: String)
     }
 
+    // ithinte onnum aavashyilla....pinne oyvaakkaam
     companion object {
-
         // TOD Customize parameter argument names
         const val ARG_COLUMN_COUNT = "column-count"
-
         // TOD Customize parameter initialization
         @JvmStatic
         fun newInstance(columnCount: Int) =

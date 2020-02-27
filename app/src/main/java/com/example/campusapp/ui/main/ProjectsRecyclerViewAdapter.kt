@@ -22,16 +22,15 @@ import kotlinx.android.synthetic.main.fragment_project.view.*
 class ProjectsRecyclerViewAdapter(
     private val mListener: OnListFragmentInteractionListener?
 ) : RecyclerView.Adapter<ProjectsRecyclerViewAdapter.ViewHolder>() {
-    private var mDoc: List<DocumentSnapshot> = listOf()
     private val mOnClickListener: View.OnClickListener
     private val db: FirebaseFirestore = FirebaseFirestore.getInstance()
+    private var mDoc: List<DocumentSnapshot> = listOf()
 
     val TAG = "ProjectsRecycler"
 
     init {
-//        mDoc = Firestore.getProjects(this)
         // Retrieve data (list of active projects) from firestore database
-        db.collection(Firestore.PROJECTS)
+        db.collection(Firestore.PROJECTS_COLLECTION)
             .addSnapshotListener { value, e ->
                 if (e != null) {
                     Log.w(TAG, "Listen failed.", e)
@@ -49,7 +48,7 @@ class ProjectsRecyclerViewAdapter(
         // Notify the active callbacks interface (the activity) that an item has been selected.
         mOnClickListener = View.OnClickListener { v ->
             val item = v.tag as String
-            mListener?.onListFragmentInteraction(item)
+            mListener?.onProjectFragmentInteraction(item)
         }
     }
 
@@ -65,7 +64,7 @@ class ProjectsRecyclerViewAdapter(
         holder.mId = item.id
         holder.mTitle.text = item.getString("title")
         holder.mDescription.text = item.getString("description")
-        Log.d("ProjRecAdapter","onBind $position ${holder.mTitle.text}")
+        Log.d(TAG,"onBind $position ${holder.mTitle.text}")
 
         with(holder.mView) {
             tag = item.id

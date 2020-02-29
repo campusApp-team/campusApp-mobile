@@ -12,7 +12,7 @@ import com.example.campusapp.backend.Firestore
 import com.example.campusapp.ui.main.ProjectFragment.OnListFragmentInteractionListener
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
-import kotlinx.android.synthetic.main.fragment_project.view.*
+import kotlinx.android.synthetic.main.project_list_item.view.*
 
 /**
  * [RecyclerView.Adapter] that can display a project and makes a call to the
@@ -38,9 +38,9 @@ class ProjectsRecyclerViewAdapter(
                 }
                 if(value != null){
                     mDoc = value.documents
-                    for (doc in value) {
-                        Log.d(TAG,"${doc.id} -> ${doc.get("title")}")
-                    }
+//                    for (doc in value) {
+//                        Log.v(TAG,"${doc.id} -> ${doc.get("title")}")
+//                    }
                     this.notifyDataSetChanged()
                 }
             }
@@ -54,7 +54,7 @@ class ProjectsRecyclerViewAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.fragment_project, parent, false)
+            .inflate(R.layout.project_list_item, parent, false)
         return ViewHolder(view)
     }
 

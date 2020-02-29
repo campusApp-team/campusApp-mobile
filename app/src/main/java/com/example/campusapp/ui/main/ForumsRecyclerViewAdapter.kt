@@ -48,9 +48,9 @@ class ForumsRecyclerViewAdapter(
                 }
                 if(value != null){
                     mDoc = value.documents
-                    for (doc in value) {
-                        Log.d(TAG,"${doc.id} -> ${doc.get("title")}")
-                    }
+//                    for (doc in value) {
+//                        Log.v(TAG,"${doc.id} -> ${doc.get("title")}")
+//                    }
                     this.notifyDataSetChanged()
                 }
             }

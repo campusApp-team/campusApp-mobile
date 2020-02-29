@@ -1,22 +1,18 @@
 package com.example.campusapp.backend
 
-import android.util.Log
-import com.example.campusapp.ui.main.ProjectsRecyclerViewAdapter
-import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 
-// this class is indented to do backend queries. Currently not working!
+// this class is indented to do backend queries. Currently used only as reference for const labels for queries
 object Firestore {
     val db:FirebaseFirestore = FirebaseFirestore.getInstance()
 
 //    private var forumsDocSnap: List<DocumentSnapshot> = listOf()
-    private var projectsDocSnap: List<DocumentSnapshot> = listOf()
+//    private var projectsDocSnap: List<DocumentSnapshot> = listOf()
     const val FORUMS_COLLECTION = "forums"
     const val PROJECTS_COLLECTION = "projects"
-//    TODO 1 : Implement Events Fragment
+    const val EVENTS_COLLECTION = "events"
 
     const val TAG = "firestore"
-    // create extra logtags when needed
 
 /*
     fun getForums(f: ForumsListViewAdapter): ArrayList<DocumentSnapshot>? {
@@ -97,7 +93,6 @@ object Firestore {
 
         return msgDocSnapshot
     }
-*/
 
     fun getProjects(f: ProjectsRecyclerViewAdapter): List<DocumentSnapshot>? {
         //  TODO 11 data retrieval works fine, but its not passed to fragment.
@@ -118,4 +113,5 @@ object Firestore {
             }
         return projectsDocSnap
     }
+    */
 }

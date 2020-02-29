@@ -66,7 +66,7 @@ class EventRecyclerViewAdapter(
         holder.mDescription.text = item.getString("description")
 
         with(holder.mView) {
-            tag = item
+            tag = item.id
             setOnClickListener(mOnClickListener)
         }
     }

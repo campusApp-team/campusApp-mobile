@@ -11,7 +11,6 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.campusapp.R
 
-import com.example.campusapp.ui.main.dummy.DummyContent.DummyItem
 
 /**
  * A fragment representing a list of Items.

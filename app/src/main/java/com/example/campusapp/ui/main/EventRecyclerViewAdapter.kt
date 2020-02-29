@@ -11,17 +11,15 @@ import com.example.campusapp.backend.Firestore
 
 
 import com.example.campusapp.ui.main.EventFragment.OnEventFragmentInteractionListener
-import com.example.campusapp.ui.main.dummy.DummyContent.DummyItem
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 
 import kotlinx.android.synthetic.main.event_list_item.view.*
-import kotlinx.android.synthetic.main.forum_list_item.view.*
 
 /**
  * [RecyclerView.Adapter] that can display a [DummyItem] and makes a call to the
  * specified [OnEventFragmentInteractionListener].
- * TODO: Replace the implementation with code for your data type.
+ * TOD: Replace the implementation with code for your data type.
  */
 class EventRecyclerViewAdapter(
     private val mListener: OnEventFragmentInteractionListener?

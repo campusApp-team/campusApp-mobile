@@ -80,7 +80,7 @@ class ForumsRecyclerViewAdapter(
             setOnClickListener(mOnClickListener)
         }
     }
-    // TODO 10 : remove dupication of data
+    // TODO 11 : remove dupication of data
     override fun getItemCount(): Int = mDoc.size*4
 
     inner class ViewHolder(val mView: View) : RecyclerView.ViewHolder(mView) {

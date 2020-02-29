@@ -95,7 +95,7 @@ object Firestore {
     }
 
     fun getProjects(f: ProjectsRecyclerViewAdapter): List<DocumentSnapshot>? {
-        //  TODO 11 data retrieval works fine, but its not passed to fragment.
+        //  TODO 20 data retrieval works fine, but its not passed to fragment.
         projectsDocSnap = listOf()
         db.collection(PROJECTS_COLLECTION)
             .addSnapshotListener { value, e ->

@@ -6,11 +6,7 @@
     android:orientation="vertical">
 
     <!--TODO Thanveer : Design the list_item CardView for forums-->
-    <!--ref:
-        https://1.bp.blogspot.com/-QfEJXmiwUnw/WhrefoF1KlI/AAAAAAAABZU/ymZYbDNNR7Yy6BDaru11Lv59zOvsurMDQCLcBGAs/s1600/StaggeredGridView-RecyclerView-Android.jpg
-        https://miro.medium.com/max/360/1*0X2XpA8_PUfn5KqF-83ebA.png
-    -->
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardCornerRadius="7dp"
@@ -19,8 +15,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="#FFFFFF">
+            android:orientation="vertical">
             <FrameLayout
                 android:id="@+id/forum_bar_list_item"
                 android:layout_width="match_parent"
@@ -47,6 +42,5 @@
                     android:textAppearance="?attr/textAppearanceListItem" />
             </LinearLayout>
         </LinearLayout>
-    </androidx.cardview.widget.CardView>
-
+    </com.google.android.material.card.MaterialCardView>
 </LinearLayout>

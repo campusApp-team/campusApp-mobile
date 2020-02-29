@@ -1,27 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
-<!--TODO Thanveer : Design the list_item for project catalogue-->
-<!--ref:
-    https://in.pinterest.com/pin/6544361936816272/
-    https://material.io/components/cards/
--->
-    <TextView
-        android:id="@+id/project_title"
-        android:layout_width="wrap_content"
+    android:orientation="vertical"
+    android:layout_margin="5dp"
+    app:cardCornerRadius="9dp"
+    app:cardElevation="3dp"
+    style="@style/Widget.MaterialComponents.CardView">
+    <!--TODO Thanveer : Design the list_item for project catalogue-->
+    <!--ref:
+        https://in.pinterest.com/pin/6544361936816272/
+        https://material.io/components/cards/
+    -->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="24dp"
-        android:text="campusApp"
-        android:layout_margin="@dimen/text_margin"
-        android:textAppearance="?attr/textAppearanceListItem" />
+        android:orientation="horizontal">
+        <FrameLayout
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:background="@color/color1">
 
-    <TextView
-        android:id="@+id/project_description"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/text_margin"
-        android:text="descriptions goes here"
-        android:textAppearance="?attr/textAppearanceListItem" />
-</LinearLayout>
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_event_list_item"/>
+        </FrameLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="20dp">
+
+            <TextView
+                android:id="@+id/project_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:textSize="20dp"
+                android:text="campusApp"
+                android:textAppearance="?attr/textAppearanceListItem" />
+
+            <TextView
+                android:id="@+id/project_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="descriptions goes here"
+                android:textAppearance="?attr/textAppearanceListItem" />
+
+        </LinearLayout>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

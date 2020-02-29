@@ -19,7 +19,7 @@ import com.example.campusapp.R
 class ProjectFragment : Fragment() {
 
     // Customize parameters_todo
-    private var columnCount = 2
+    private var columnCount = 1
     private var listener: OnListFragmentInteractionListener? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {

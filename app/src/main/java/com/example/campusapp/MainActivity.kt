@@ -1,5 +1,6 @@
 package com.example.campusapp
 
+import android.graphics.Color
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -26,6 +27,8 @@ class MainActivity : AppCompatActivity(),
         viewPager.adapter = sectionsPagerAdapter
         val tabs: TabLayout = findViewById(R.id.tabs)
         tabs.setupWithViewPager(viewPager)
+        tabs.setTabTextColors(R.color.color6,resources.getColor(R.color.white))
+        tabs.setSelectedTabIndicatorColor(resources.getColor(R.color.white))
 
         val fab: FloatingActionButton = findViewById(R.id.fab)
         fab.setOnClickListener { view ->

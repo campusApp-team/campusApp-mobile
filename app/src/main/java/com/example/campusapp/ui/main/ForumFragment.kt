@@ -14,14 +14,14 @@ import com.example.campusapp.R
 /**
  * A fragment representing a list of Items.
  * Activities containing this fragment MUST implement the
- * [ForumFragment.OnListFragmentInteractionListener] interface.
+ * [ForumFragment.OnForumFragmentInteractionListener] interface.
  */
 class ForumFragment : Fragment() {
 
     // TOD: Customize parameters
     private var columnCount = 2
 
-    private var listener: OnListFragmentInteractionListener? = null
+    private var listener: OnForumFragmentInteractionListener? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,7 +52,7 @@ class ForumFragment : Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        if (context is OnListFragmentInteractionListener) {
+        if (context is OnForumFragmentInteractionListener) {
             listener = context
         } else {
             throw RuntimeException(context.toString() + " must implement OnListFragmentInteractionListener")
@@ -74,7 +74,7 @@ class ForumFragment : Fragment() {
      * [Communicating with Other Fragments](http://developer.android.com/training/basics/fragments/communicating.html)
      * for more information.
      */
-    interface OnListFragmentInteractionListener {
+    interface OnForumFragmentInteractionListener {
         // TOD Update argument type and name
         fun onForumFragmentInteraction(id: String)
     }

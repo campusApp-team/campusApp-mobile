@@ -14,13 +14,13 @@ import com.example.campusapp.R
 /**
  * A fragment representing a list of Items.
  * Activities containing this fragment MUST implement the
- * [ProjectFragment.OnListFragmentInteractionListener] interface.
+ * [ProjectFragment.OnProjectFragmentInteractionListener] interface.
  */
 class ProjectFragment : Fragment() {
 
     // Customize parameters_todo
     private var columnCount = 1
-    private var listener: OnListFragmentInteractionListener? = null
+    private var listener: OnProjectFragmentInteractionListener? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,7 +51,7 @@ class ProjectFragment : Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        if (context is OnListFragmentInteractionListener) {
+        if (context is OnProjectFragmentInteractionListener) {
             listener = context
         } else {
             throw RuntimeException("$context must implement OnListFragmentInteractionListener")
@@ -72,7 +72,7 @@ class ProjectFragment : Fragment() {
      * See the Android Training lesson
      * [Communicating with Other Fragments](http://developer.android.com/training/basics/fragments/communicating.html)
      */
-    interface OnListFragmentInteractionListener {
+    interface OnProjectFragmentInteractionListener {
         fun onProjectFragmentInteraction(id: String)
     }
 

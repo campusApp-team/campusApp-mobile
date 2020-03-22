@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimarySurface">#00FFA6</color>
+    <color name="colorOnPrimarySurface">#FF0000</color>
+    <!--  FAB  -->
+    <color name="colorSecondary">#FFFFFF</color>
+    <color name="colorOnSecondary">#000000</color>
+    <!-- Bottom Bar -->
+    <color name="colorPrimaryVariant">#333</color>
+
+    <color name="colorOnPrimary">#CCC</color>
+    <color name="colorSecondaryVariant">#9358F3</color>
+
+    <color name="colorPrimary">#121212</color>
+    <color name="colorPrimaryDark">#101010</color>
+    <color name="colorAccent">#18003E</color>
+
+    <color name="forum_icon_main">#232B34</color>
+</resources>

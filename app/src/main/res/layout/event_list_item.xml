@@ -6,17 +6,18 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:cardCornerRadius="11dp"
-    app:cardElevation="20dp">
+    app:cardElevation="3dp">
 
     <!--TODO Thanveer : Design the list_item CardView for events-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+        <!--        placeholder for image       -->
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#aaa">
+            android:background="@color/colorSecondaryVariant">
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_margin="33dp"
                 android:layout_width="50dp"
@@ -30,7 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="bold"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:layout_margin="@dimen/text_margin"
             android:textAppearance="?attr/textAppearanceListItem" />
 

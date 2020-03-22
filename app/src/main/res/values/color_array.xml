@@ -1,21 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="color0">#000</color>
     <color name="color1">#C72121</color>
-    <color name="color2">#C75E19</color>
+    <color name="color2">#E36E21</color>
     <color name="color3">#F5AB17</color>
-    <color name="color4">#1FAF2B</color>
+    <color name="color4">#1FAF4C</color>
     <color name="color5">#2664C4</color>
-    <color name="color6">#777</color>
 
     <array name="msg_colors">
-        <item>@color/color0</item>
         <item>@color/color1</item>
         <item>@color/color2</item>
         <item>@color/color3</item>
         <item>@color/color4</item>
         <item>@color/color5</item>
-        <item>@color/color6</item>
     </array>
 </resources>

@@ -1,36 +1,29 @@
 package com.example.campusapp.ui.main
 
+
 import android.util.Log
-import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.FrameLayout
+import android.view.animation.AnimationUtils
 import android.widget.TextView
-import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.campusapp.R
 import com.example.campusapp.backend.Firestore
-
-
-import com.example.campusapp.ui.main.ForumFragment.OnListFragmentInteractionListener
+import com.example.campusapp.ui.main.ForumFragment.OnForumFragmentInteractionListener
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
-
 import kotlinx.android.synthetic.main.forum_list_item.view.*
-import kotlin.random.Random
 
-/**
- * [RecyclerView.Adapter] that can display a [DummyItem] and makes a call to the
- * specified [OnListFragmentInteractionListener].
- */
 class ForumsRecyclerViewAdapter(
-    private val mListener: OnListFragmentInteractionListener?
+    private val mListener: OnForumFragmentInteractionListener?
 ) : RecyclerView.Adapter<ForumsRecyclerViewAdapter.ViewHolder>() {
 
     private val mOnClickListener: View.OnClickListener
     private val db: FirebaseFirestore = FirebaseFirestore.getInstance()
     private var mDoc: List<DocumentSnapshot> = listOf()
-    private var mColors:IntArray = IntArray(0)
+    //    private var mColors:IntArray = IntArray(0)
     val TAG = "ForumsRecycler"
 
     init {
@@ -48,10 +41,8 @@ class ForumsRecyclerViewAdapter(
                 }
                 if(value != null){
                     mDoc = value.documents
-//                    for (doc in value) {
-//                        Log.v(TAG,"${doc.id} -> ${doc.get("title")}")
-//                    }
                     this.notifyDataSetChanged()
+//                    for (doc in value) {Log.v(TAG,"${doc.id} -> ${doc.get("title")}")}
                 }
             }
 
@@ -60,7 +51,6 @@ class ForumsRecyclerViewAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.forum_list_item, parent, false)
-        mColors = view.context.resources.getIntArray(R.array.msg_colors)
         return ViewHolder(view)
     }
 
@@ -70,15 +60,22 @@ class ForumsRecyclerViewAdapter(
         holder.mId = item.id
         holder.mTitle.text = item.getString("title")
         holder.mDescription.text = item.getString("description")
-//        val col = mColors[position%mColors.size]
-        val col = mColors[(Math.random()*mColors.size).toInt()]
-        holder.mBar.setBackgroundColor(col)
-//        Log.v(TAG,"onBind $position ${holder.mTitle.text}")
-
+        val animation = AnimationUtils.loadAnimation(holder.itemView.context, R.anim.rise_anim)
+        holder.itemView.startAnimation(animation)
+        val params = holder.itemView.layoutParams as StaggeredGridLayoutManager.LayoutParams
+        params.bottomMargin = when(position){
+            itemCount-1 -> 300
+            else -> 12
+        }
+        holder.itemView.layoutParams = params
         with(holder.mView) {
             tag = item.id
             setOnClickListener(mOnClickListener)
         }
+//        val col = mColors[position%mColors.size]
+//        val col = mColors[(Math.random()*mColors.size).toInt()]
+//        holder.mBar.setBackgroundColor(col)
+//        Log.v(TAG,"onBind $position ${holder.mTitle.text}")
     }
     // TODO 11 : remove dupication of data
     override fun getItemCount(): Int = mDoc.size*4
@@ -87,7 +84,7 @@ class ForumsRecyclerViewAdapter(
         var mId:String = "null"
         val mTitle: TextView = mView.forum_title_list_item
         val mDescription: TextView = mView.forum_description_list_item
-        val mBar:FrameLayout = mView.forum_bar_list_item
+//        val mBar:ImageView = mView.forum_bar_list_item
 
         override fun toString(): String {
             return super.toString() + " '" + mDescription.text + "'"

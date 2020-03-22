@@ -1,26 +1,20 @@
 package com.example.campusapp.ui.main
 
+
 import android.util.Log
-import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
 import com.example.campusapp.R
 import com.example.campusapp.backend.Firestore
-
-
 import com.example.campusapp.ui.main.EventFragment.OnEventFragmentInteractionListener
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
-
 import kotlinx.android.synthetic.main.event_list_item.view.*
 
-/**
- * [RecyclerView.Adapter] that can display a [DummyItem] and makes a call to the
- * specified [OnEventFragmentInteractionListener].
- * TOD: Replace the implementation with code for your data type.
- */
 class EventRecyclerViewAdapter(
     private val mListener: OnEventFragmentInteractionListener?
 ) : RecyclerView.Adapter<EventRecyclerViewAdapter.ViewHolder>() {
@@ -44,10 +38,8 @@ class EventRecyclerViewAdapter(
                 }
                 if(value != null){
                     mDoc = value.documents
-//                    for (doc in value) {
-//                        Log.v(TAG,"${doc.id} -> ${doc.get("title")}")
-//                    }
                     this.notifyDataSetChanged()
+//                    for (doc in value) {Log.v(TAG,"${doc.id} -> ${doc.get("title")}")}
                 }
             }
 
@@ -64,6 +56,14 @@ class EventRecyclerViewAdapter(
         holder.mId = item.id
         holder.mTitle.text = item.getString("title")
         holder.mDescription.text = item.getString("description")
+        val animation = AnimationUtils.loadAnimation(holder.itemView.context, R.anim.rise_anim)
+        holder.itemView.startAnimation(animation)
+        val params = holder.itemView.layoutParams as RecyclerView.LayoutParams
+        params.bottomMargin = when(position){
+            itemCount-1 -> 300
+            else -> 13
+        }
+        holder.itemView.layoutParams = params
 
         with(holder.mView) {
             tag = item.id

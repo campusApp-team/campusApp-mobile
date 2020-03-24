@@ -10,18 +10,28 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardCornerRadius="7dp"
-        android:layout_margin="7dp"
-        app:cardElevation="3dp">
+        app:cardElevation="7dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="12dp"
+        android:layout_marginLeft="7dp"
+        android:layout_marginRight="7dp">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-            <FrameLayout
+<!--            <FrameLayout-->
+<!--                android:id="@+id/forum_bar_list_item"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="3dp"-->
+<!--                android:background="@color/color1"/>-->
+            <!--        placeholder for image       -->
+            <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/forum_bar_list_item"
                 android:layout_width="match_parent"
-                android:layout_height="3dp"
-                android:background="@color/color1"
-                android:layout_marginBottom="10dp"/>
+                android:layout_height="150dp"
+                android:background="@color/colorSecondaryVariant"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_launcher_foreground"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -29,7 +39,7 @@
                 android:layout_margin="7dp">
                 <TextView
                     android:id="@+id/forum_title_list_item"
-                    android:textSize="20dp"
+                    android:textSize="20sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="7dp"

@@ -18,11 +18,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
+        <!--        placeholder for image       -->
         <FrameLayout
             android:layout_width="120dp"
             android:layout_height="match_parent"
-            android:background="@color/color1">
-
+            android:background="@color/colorSecondaryVariant">
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
@@ -40,15 +40,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:textSize="20dp"
-                android:text="campusApp"
+                android:textSize="20sp"
+                android:text="@string/app_name"
                 android:textAppearance="?attr/textAppearanceListItem" />
 
             <TextView
                 android:id="@+id/project_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="descriptions goes here"
                 android:textAppearance="?attr/textAppearanceListItem" />
 
         </LinearLayout>

@@ -22,9 +22,10 @@
                 android:layout_margin="33dp"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:src="@drawable/ic_event_list_item"
+                app:srcCompat="@drawable/ic_event_list_item"
                 android:layout_gravity="center|center_vertical"
                 />
+            <!-- app:srcCompact allows vector drawable support from API7 ! -->
         </FrameLayout>
         <TextView
             android:id="@+id/event_title_list_item"
@@ -34,7 +35,6 @@
             android:textSize="20sp"
             android:layout_margin="@dimen/text_margin"
             android:textAppearance="?attr/textAppearanceListItem" />
-
         <TextView
             android:id="@+id/event_description_list_item"
             android:layout_width="wrap_content"

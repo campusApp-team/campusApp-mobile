@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">campusApp</string>
+    <!--    unused, deletable tab titles    -->
     <string name="tab_text_forums">forums</string>
     <string name="tab_text_projects">projects</string>
     <string name="tab_text_events">events</string>

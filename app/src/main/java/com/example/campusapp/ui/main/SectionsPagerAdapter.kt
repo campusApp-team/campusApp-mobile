@@ -1,11 +1,13 @@
 package com.example.campusapp.ui.main
 
 import android.content.Context
-import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.example.campusapp.R
+import com.example.campusapp.ui.main.event.EventListFragment
+import com.example.campusapp.ui.main.forum.ForumListFragment
+import com.example.campusapp.ui.main.project.ProjectListFragment
 
 
 private val TAB_TITLES = arrayOf(
@@ -22,9 +24,9 @@ class SectionsPagerAdapter(private val context: Context, fm: FragmentManager) : 
         // getItem is called to instantiate the fragment for the given page.
         // Return corresponding fragments
         return when (position) {
-            0 -> ForumFragment()
-            1 -> ProjectFragment()
-            else -> EventFragment()
+            0 -> ForumListFragment()
+            1 -> ProjectListFragment()
+            else -> EventListFragment()
         }
     }
 //    override fun getPageTitle(position: Int): CharSequence? {

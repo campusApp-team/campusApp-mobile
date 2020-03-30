@@ -112,10 +112,6 @@ class MainActivity : AppCompatActivity(),
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_SHORT)
                 .setAnchorView(fab)
                 .setAction("Action", null).show()
-            bottomAppBar.fabAlignmentMode = when(bottomAppBar.fabAlignmentMode){
-                BottomAppBar.FAB_ALIGNMENT_MODE_END -> BottomAppBar.FAB_ALIGNMENT_MODE_CENTER
-                else -> BottomAppBar.FAB_ALIGNMENT_MODE_END
-            }
         }
     }
 

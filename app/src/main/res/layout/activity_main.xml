@@ -7,7 +7,6 @@
     tools:context=".MainActivity">
 
     <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
@@ -26,11 +25,13 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.fragment.app.FragmentContainerView
-        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
-        android:id="@+id/container"
-        android:name="com.example.campusapp.ui.main.MainFragment"
+        android:id="@+id/my_nav_host_fragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_width="match_parent" />
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/mobile_navigation" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
@@ -44,12 +45,37 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        app:fabAlignmentMode="center"
+        app:fabAlignmentMode="end"
         app:fabCradleMargin="5dp"
-        app:fabCradleRoundedCornerRadius="7dp"
+        app:fabCradleRoundedCornerRadius="17dp"
         app:hideOnScroll="true"
         android:backgroundTint="@color/colorPrimaryVariant"
-        app:navigationIcon="@drawable/ic_bab_navigation"
-        app:menu="@menu/bottom_navigation_menu" />
+        app:navigationIcon="@drawable/ic_bab_navigation">
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tab_layout"
+            app:tabIconTint="@color/tab_icon_tint_selector"
+            app:tabIndicatorColor="@color/tabSelectedIconTint"
+            app:tabUnboundedRipple="false"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorPrimaryVariant">
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/forum_tab"
+                android:icon="@drawable/ic_bab_forums"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/project_tab"
+                android:icon="@drawable/ic_bab_projects"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/event_tab"
+                android:icon="@drawable/ic_bab_events"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </com.google.android.material.tabs.TabLayout>
+    </com.google.android.material.bottomappbar.BottomAppBar>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

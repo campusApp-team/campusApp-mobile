@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:layout_margin="5dp"
+    android:layout_margin="9dp"
     app:cardCornerRadius="9dp"
     app:cardElevation="3dp"
     style="@style/Widget.MaterialComponents.CardView">

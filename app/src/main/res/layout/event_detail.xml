@@ -14,7 +14,7 @@
         android:textSize="30dp"
         android:text="Forum Fragment" />
     <TextView
-        android:id="@+id/forum_id_tv"
+        android:id="@+id/event_id_tv"
         android:layout_margin="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

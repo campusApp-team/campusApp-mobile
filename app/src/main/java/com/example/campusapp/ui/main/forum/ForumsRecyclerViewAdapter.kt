@@ -77,7 +77,7 @@ class ForumsRecyclerViewAdapter(
 //        holder.mBar.setBackgroundColor(col)
 //        Log.v(TAG,"onBind $position ${holder.mTitle.text}")
     }
-    // TODO 11 : remove dupication of data
+    // TODO11 : remove dupication of data
     override fun getItemCount(): Int = mDoc.size*4
 
     inner class ViewHolder(val mView: View) : RecyclerView.ViewHolder(mView) {

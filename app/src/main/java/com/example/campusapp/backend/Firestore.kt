@@ -12,4 +12,6 @@ object Firestore {
     const val PROJECTS_COLLECTION = "projects"
     const val EVENTS_COLLECTION = "events"
 
+    const val TEMPLATE_DATA = "0template"
+
 }

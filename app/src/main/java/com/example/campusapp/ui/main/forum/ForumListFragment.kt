@@ -40,10 +40,7 @@ class ForumListFragment : Fragment() {
         // Set the adapter
         if (view is RecyclerView) {
             with(view) {
-                layoutManager = when {
-                    columnCount <= 1 -> LinearLayoutManager(context)
-                    else -> StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL)//GridLayoutManager(context, columnCount)
-                }
+                layoutManager = StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL)
                 adapter =
                     ForumsRecyclerViewAdapter(
                         listener

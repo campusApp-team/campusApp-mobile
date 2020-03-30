@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="10dp"
     tools:context=".ui.main.forum.ForumFragment"
     android:orientation="vertical">
 
@@ -20,4 +21,8 @@
         android:layout_height="wrap_content"
         android:textSize="30dp"
         android:text="forum-c9f8235ea4" />
+    <TextView
+        android:id="@+id/chat_test"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 </LinearLayout>

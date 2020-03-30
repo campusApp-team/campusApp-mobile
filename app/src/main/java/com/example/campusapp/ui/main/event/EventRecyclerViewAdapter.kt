@@ -71,7 +71,7 @@ class EventRecyclerViewAdapter(
         }
     }
 
-    // TODO 10 : remove dupication of data
+    // TODO10 : remove dupication of data
     override fun getItemCount(): Int = mDoc.size * 3
 
     inner class ViewHolder(val mView: View) : RecyclerView.ViewHolder(mView) {

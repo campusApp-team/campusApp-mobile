@@ -3,25 +3,79 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@id/forumlist_dest">
+    app:startDestination="@id/mainFragment">
 
     <fragment
         android:id="@+id/eventlist_dest"
         android:name="com.example.campusapp.ui.main.event.EventListFragment"
         android:label="event_list"
-        tools:layout="@layout/event_list" />
+        tools:layout="@layout/event_list" >
+        <action
+            android:id="@+id/view_details"
+            app:destination="@id/event_dest"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+        <argument
+            android:name="event_id"
+            app:argType="string"
+            android:defaultValue="0template"
+            />
+    </fragment>
     <fragment
         android:id="@+id/forumlist_dest"
         android:name="com.example.campusapp.ui.main.forum.ForumListFragment"
         android:label="forum_list"
-        tools:layout="@layout/forum_list" />
+        tools:layout="@layout/forum_list" >
+        <action
+            android:id="@+id/view_details"
+            app:destination="@id/forum_dest"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+        <argument
+            android:name="forum_id"
+            app:argType="string"
+            android:defaultValue="0template"
+            />
+    </fragment>
     <fragment
         android:id="@+id/projectlist_dest"
         android:name="com.example.campusapp.ui.main.project.ProjectListFragment"
         android:label="project_list"
-        tools:layout="@layout/project_list" />
+        tools:layout="@layout/project_list" >
+        <action
+            android:id="@+id/view_details"
+            app:destination="@id/project_dest"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+        <argument
+            android:name="project_id"
+            app:argType="string"
+            android:defaultValue="0template"
+            />
+    </fragment>
     <fragment
-        android:id="@+id/start_dest"
+        android:id="@+id/forum_dest"
+        android:name="com.example.campusapp.ui.main.forum.ForumFragment"
+        android:label="fragment_forum"
+        tools:layout="@layout/forum_detail" />
+    <fragment
+        android:id="@+id/project_dest"
+        android:name="com.example.campusapp.ui.main.project.ProjectFragment"
+        android:label="fragment_project"
+        tools:layout="@layout/project_detail" />
+    <fragment
+        android:id="@+id/event_dest"
+        android:name="com.example.campusapp.ui.main.event.EventFragment"
+        android:label="fragment_event"
+        tools:layout="@layout/event_detail" />
+    <fragment
+        android:id="@+id/mainFragment"
         android:name="com.example.campusapp.ui.main.MainFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" />

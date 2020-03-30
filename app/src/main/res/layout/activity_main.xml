@@ -52,6 +52,7 @@
         android:backgroundTint="@color/colorPrimaryVariant"
         app:navigationIcon="@drawable/ic_bab_navigation">
         <com.google.android.material.tabs.TabLayout
+            app:tabMinWidth="40dp"
             android:id="@+id/tab_layout"
             app:tabIconTint="@color/tab_icon_tint_selector"
             app:tabIndicatorColor="@color/tabSelectedIconTint"

@@ -4,4 +4,9 @@
     <string name="tab_text_forums">forums</string>
     <string name="tab_text_projects">projects</string>
     <string name="tab_text_events">events</string>
+
+
+
+    <!--  String key for firestore template data  -->
+    <string name="firebase_template">0template</string>
 </resources>

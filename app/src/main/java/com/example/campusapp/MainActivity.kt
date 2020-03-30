@@ -1,15 +1,22 @@
 package com.example.campusapp
 
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.navOptions
+import com.example.campusapp.ui.main.event.EventFragmentArgs
 import com.example.campusapp.ui.main.event.EventListFragment
+import com.example.campusapp.ui.main.event.EventListFragmentDirections
 import com.example.campusapp.ui.main.forum.ForumListFragment
+import com.example.campusapp.ui.main.forum.ForumListFragmentDirections
+import com.example.campusapp.ui.main.project.ProjectFragmentArgs
 import com.example.campusapp.ui.main.project.ProjectListFragment
+import com.example.campusapp.ui.main.project.ProjectListFragmentDirections
 import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
@@ -26,6 +33,7 @@ class MainActivity : AppCompatActivity(),
     lateinit var bottomAppBar: BottomAppBar
     lateinit var fab: FloatingActionButton
     lateinit var tabLayout: TabLayout
+    lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,38 +41,53 @@ class MainActivity : AppCompatActivity(),
 
         val host: NavHostFragment = supportFragmentManager
             .findFragmentById(R.id.my_nav_host_fragment) as NavHostFragment? ?: return
-        val navController = host.navController
+        navController = host.navController
 
-        setupUI(navController)
+        setupUI()
 
     }
 
     override fun onBackPressed() {
-        val builder: AlertDialog.Builder = AlertDialog.Builder(this@MainActivity,R.style.AlertDialogueCustom)
-        builder.setMessage("Do you want to exit?")
-            .setCancelable(true)
-            .setPositiveButton("Yes") { dialog, id -> finish() }
-            .setNegativeButton("No" ) { dialog, id -> dialog.cancel() }
-        val alert: AlertDialog = builder.create()
-        alert.show()
+        when(navController.currentDestination!!.id){
+            R.id.forum_dest,R.id.project_dest,R.id.event_dest -> {
+                tabLayout.visibility = View.VISIBLE
+                fab.show()
+            }
+                else -> tabLayout.visibility = View.INVISIBLE
+        }
+        super.onBackPressed()
+//        val builder: AlertDialog.Builder = AlertDialog.Builder(this@MainActivity,R.style.AlertDialogueCustom)
+//        builder.setMessage("Do you want to exit?")
+//            .setCancelable(true)
+//            .setPositiveButton("Yes") { dialog, id -> finish() }
+//            .setNegativeButton("No" ) { dialog, id -> dialog.cancel() }
+//        val alert: AlertDialog = builder.create()
+//        alert.show()
     }
 
     override fun onForumFragmentInteraction(id: String) {
-        Toast.makeText(this,"todo : Forum Clicked",Toast.LENGTH_SHORT).show()
-        // TODO 1 : make fragment for Forums
+        val action = ForumListFragmentDirections.viewDetails(id)
+        navController.navigate(action)
+        tabLayout.visibility = View.INVISIBLE
+        fab.hide()
+//        bottomAppBar.performHide()
     }
 
     override fun onProjectFragmentInteraction(id: String) {
-        Toast.makeText(this,"todo : Project Clicked",Toast.LENGTH_SHORT).show()
-        // TODO 2 : make fragment for Projects
+        val action = ProjectListFragmentDirections.viewDetails(id)
+        navController.navigate(action)
+        tabLayout.visibility = View.INVISIBLE
+        fab.hide()
     }
 
     override fun onEventFragmentInteraction(id: String) {
-        Toast.makeText(this,"todo : Event Clicked",Toast.LENGTH_SHORT).show()
-        // TODO 3 : make fragment for Events/Extras
+        val action = EventListFragmentDirections.viewDetails(id)
+        navController.navigate(action)
+        tabLayout.visibility = View.INVISIBLE
+        fab.hide()
     }
 
-    private fun setupUI(navController:NavController){
+    private fun setupUI(){
         val options = navOptions {
             anim {
                 enter = R.anim.fade_in

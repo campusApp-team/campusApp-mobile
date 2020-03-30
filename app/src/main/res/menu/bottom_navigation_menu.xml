@@ -1,26 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <group android:id="@+id/tabs"
-        android:enabled="true"
-        android:visible="true"
-        android:checkableBehavior="single">
-        <item android:id="@+id/forum_menu"
-            android:title="Forum"
-            android:icon="@drawable/ic_bab_forums"
-            android:checkable="true"
-            app:showAsAction="always"/>
-
-        <item android:id="@+id/project_menu"
-            app:showAsAction="always"
-            android:title="Project"
-            android:checkable="true"
-            android:icon="@drawable/ic_bab_projects"/>
-
-        <item android:id="@+id/event_menu"
-            android:title="Event"
-            app:showAsAction="always"
-            android:checkable="true"
-            android:icon="@drawable/ic_bab_events"/>
-    </group>
+    <item android:id="@+id/forumlist_dest"
+        android:title="Forum"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_bab_forums"/>
+    <item android:id="@+id/projectlist_dest"
+        android:title="Project"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_bab_projects"/>
+    <item android:id="@+id/eventlist_dest"
+        android:title="Event"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_bab_events"/>
 </menu>

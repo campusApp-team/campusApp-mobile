@@ -13,7 +13,7 @@
 
     <color name="colorPrimary">#121212</color>
     <color name="colorPrimaryDark">#101010</color>
-    <color name="colorAccent">#18003E</color>
 
-    <color name="forum_icon_main">#232B34</color>
+    <color name="tabIconTint">#5F5F5F</color>
+    <color name="tabSelectedIconTint">#ACACAC</color>
 </resources>

@@ -56,7 +56,7 @@ class EventRecyclerViewAdapter(
         holder.mId = item.id
         holder.mTitle.text = item.getString("title")
         holder.mDescription.text = item.getString("description")
-        val animation = AnimationUtils.loadAnimation(holder.itemView.context, R.anim.rise_anim)
+        val animation = AnimationUtils.loadAnimation(holder.itemView.context, R.anim.rise_up)
         holder.itemView.startAnimation(animation)
         val params = holder.itemView.layoutParams as RecyclerView.LayoutParams
         params.bottomMargin = when(position){

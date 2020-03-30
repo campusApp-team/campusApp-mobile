@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/forumlist_dest">
+
+    <fragment
+        android:id="@+id/eventlist_dest"
+        android:name="com.example.campusapp.ui.main.event.EventListFragment"
+        android:label="event_list"
+        tools:layout="@layout/event_list" />
+    <fragment
+        android:id="@+id/forumlist_dest"
+        android:name="com.example.campusapp.ui.main.forum.ForumListFragment"
+        android:label="forum_list"
+        tools:layout="@layout/forum_list" />
+    <fragment
+        android:id="@+id/projectlist_dest"
+        android:name="com.example.campusapp.ui.main.project.ProjectListFragment"
+        android:label="project_list"
+        tools:layout="@layout/project_list" />
+    <fragment
+        android:id="@+id/start_dest"
+        android:name="com.example.campusapp.ui.main.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" />
+</navigation>

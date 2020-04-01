@@ -1,28 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_margin="10dp"
     tools:context=".ui.main.forum.ForumFragment"
-    android:orientation="vertical">
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    >
+    <!-- TODO Thanveer: Update forum layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <!-- TODO Thanveer: Update blank fragment layout -->
-    <TextView
-        android:layout_margin="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="30dp"
-        android:text="Forum Fragment" />
-    <TextView
-        android:id="@+id/forum_id_tv"
-        android:layout_margin="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="30dp"
-        android:text="forum-c9f8235ea4" />
-    <TextView
-        android:id="@+id/chat_test"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-</LinearLayout>
+            <androidx.coordinatorlayout.widget.CoordinatorLayout
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                android:orientation="vertical">
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/forum_header_image"
+                    android:cropToPadding="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+                <LinearLayout
+                    android:layout_gravity="bottom|left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="13dp"
+                    android:orientation="vertical">
+                <TextView
+                    android:id="@+id/forum_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="30sp"
+                    android:text="Forum" />
+                <TextView
+                    android:id="@+id/forum_id_tv"
+                    android:textColor="@color/material_on_surface_disabled"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="forum-c9f8235ea4" />
+                </LinearLayout>
+                <androidx.core.widget.ContentLoadingProgressBar
+                    android:id="@+id/forum_progress"
+                    android:indeterminate="true"
+                    style="?android:attr/progressBarStyleSmall"
+                    android:visibility="visible"
+                    android:layout_margin="15dp"
+                    android:layout_gravity="bottom|right"
+                    android:progressTint="@color/colorSecondaryVariant"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </androidx.coordinatorlayout.widget.CoordinatorLayout>
+        <androidx.core.widget.ContentLoadingProgressBar
+            android:id="@+id/chat_progress_bar"
+            android:indeterminate="true"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:visibility="visible"
+            android:layout_gravity="center"
+            android:progressTint="@color/colorSecondaryVariant"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_margin="13dp"
+            android:id="@+id/chat_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

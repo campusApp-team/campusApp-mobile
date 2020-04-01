@@ -9,10 +9,12 @@ import android.view.animation.AnimationUtils
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.campusapp.R
-import com.example.campusapp.backend.Firestore
+import com.example.campusapp.backend.DataRef
+import com.example.campusapp.backend.DataRef.db
 import com.example.campusapp.ui.main.event.EventListFragment.OnEventFragmentInteractionListener
 import com.google.firebase.firestore.DocumentSnapshot
-import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.event_list_item.view.*
 
 class EventRecyclerViewAdapter(
@@ -20,7 +22,6 @@ class EventRecyclerViewAdapter(
 ) : RecyclerView.Adapter<EventRecyclerViewAdapter.ViewHolder>() {
 
     private val mOnClickListener: View.OnClickListener
-    private val db: FirebaseFirestore = FirebaseFirestore.getInstance()
     private var mDoc: List<DocumentSnapshot> = listOf()
     val TAG = "EventsRecycler"
 
@@ -30,7 +31,7 @@ class EventRecyclerViewAdapter(
             // Notify the active callbacks interface (the activity) that an item has been selected.
             mListener?.onEventFragmentInteraction(item)
         }
-        db.collection(Firestore.EVENTS_COLLECTION)
+        db.collection(DataRef.EVENTS_COLLECTION)
             .addSnapshotListener { value, e ->
                 if (e != null) {
                     Log.w(TAG, "Listen failed.", e)

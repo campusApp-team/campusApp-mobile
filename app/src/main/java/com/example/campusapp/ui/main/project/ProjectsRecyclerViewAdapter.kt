@@ -9,10 +9,10 @@ import android.view.animation.AnimationUtils
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.campusapp.R
-import com.example.campusapp.backend.Firestore
+import com.example.campusapp.backend.DataRef
+import com.example.campusapp.backend.DataRef.db
 import com.example.campusapp.ui.main.project.ProjectListFragment.OnProjectFragmentInteractionListener
 import com.google.firebase.firestore.DocumentSnapshot
-import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.project_list_item.view.*
 
 /**
@@ -24,14 +24,13 @@ class ProjectsRecyclerViewAdapter(
     private val mListener: OnProjectFragmentInteractionListener?
 ) : RecyclerView.Adapter<ProjectsRecyclerViewAdapter.ViewHolder>() {
     private val mOnClickListener: View.OnClickListener
-    private val db: FirebaseFirestore = FirebaseFirestore.getInstance()
     private var mDoc: List<DocumentSnapshot> = listOf()
 
     val TAG = "ProjectsRecycler"
 
     init {
         // Retrieve data (list of active projects) from firestore database
-        db.collection(Firestore.PROJECTS_COLLECTION)
+        db.collection(DataRef.PROJECTS_COLLECTION)
             .addSnapshotListener { value, e ->
                 if (e != null) {
                     Log.w(TAG, "Listen failed.", e)

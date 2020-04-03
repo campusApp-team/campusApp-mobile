@@ -6,7 +6,7 @@
     tools:context=".ui.main.project.ProjectFragment"
     android:orientation="vertical">
 
-    <!-- TODO Thanveer: Update blank fragment layout -->
+    <!-- TODO Thanveer: Update blank project detail fragment layout -->
     <TextView
         android:layout_margin="20dp"
         android:layout_width="match_parent"

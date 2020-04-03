@@ -6,6 +6,7 @@
     android:name="com.example.campusapp.ui.main.ProjectFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:scrollbars="vertical"
     app:layoutManager="LinearLayoutManager"
     tools:context=".ui.main.project.ProjectListFragment"
     tools:listitem="@layout/project_list_item" />

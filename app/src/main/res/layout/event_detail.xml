@@ -6,19 +6,19 @@
     android:orientation="vertical"
     tools:context=".ui.main.event.EventFragment">
 
-    <!-- TODO Thanveer: Update blank fragment layout -->
+    <!-- TODO Thanveer: Update blank event fragment layout -->
     <TextView
         android:layout_margin="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="30dp"
-        android:text="Forum Fragment" />
+        android:textSize="30sp"
+        android:text="Event Fragment" />
     <TextView
         android:id="@+id/event_id_tv"
         android:layout_margin="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="30dp"
+        android:textSize="30sp"
         android:text="event-89f1c86a9" />
 
 </LinearLayout>

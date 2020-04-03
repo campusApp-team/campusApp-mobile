@@ -3,7 +3,9 @@
     android:layout_height="wrap_content"
     android:layout_width="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_margin="10dp"
+    android:layout_marginTop="7dp"
+    android:layout_marginBottom="7dp"
+    android:layout_marginStart="13dp"
     app:cardCornerRadius="7dp">
 <!--  TODO Thanveer : Design layout for message view  -->
     <TextView

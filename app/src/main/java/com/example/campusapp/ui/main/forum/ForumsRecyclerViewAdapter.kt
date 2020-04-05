@@ -10,10 +10,12 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.campusapp.R
-import com.example.campusapp.backend.Firestore
+import com.example.campusapp.backend.DataRef
+import com.example.campusapp.backend.DataRef.db
 import com.example.campusapp.ui.main.forum.ForumListFragment.OnForumFragmentInteractionListener
 import com.google.firebase.firestore.DocumentSnapshot
-import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.forum_list_item.view.*
 
 class ForumsRecyclerViewAdapter(
@@ -21,7 +23,6 @@ class ForumsRecyclerViewAdapter(
 ) : RecyclerView.Adapter<ForumsRecyclerViewAdapter.ViewHolder>() {
 
     private val mOnClickListener: View.OnClickListener
-    private val db: FirebaseFirestore = FirebaseFirestore.getInstance()
     private var mDoc: List<DocumentSnapshot> = listOf()
     //    private var mColors:IntArray = IntArray(0)
     val TAG = "ForumsRecycler"
@@ -33,7 +34,7 @@ class ForumsRecyclerViewAdapter(
             // Notify the active callbacks interface (the activity) that an item has been selected.
             mListener?.onForumFragmentInteraction(item)
         }
-        db.collection(Firestore.FORUMS_COLLECTION)
+        db.collection(DataRef.FORUMS_COLLECTION)
             .addSnapshotListener { value, e ->
                 if (e != null) {
                     Log.w(TAG, "Listen failed.", e)

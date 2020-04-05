@@ -1,28 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<!-- TODO Thanveer: Update forum layout -->
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.main.forum.ForumFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="10dp"
-    tools:context=".ui.main.forum.ForumFragment"
     android:orientation="vertical">
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/chat_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        tools:itemCount="10"
+        tools:listitem="@layout/chat_tv_item" />
+    <androidx.core.widget.ContentLoadingProgressBar
+        android:id="@+id/chat_progress_bar"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:layout_gravity="center"
+        android:progressTint="@color/colorSecondaryVariant"
+        style="?android:attr/progressBarStyleHorizontal"/>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
 
-    <!-- TODO Thanveer: Update blank fragment layout -->
-    <TextView
-        android:layout_margin="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="30dp"
-        android:text="Forum Fragment" />
-    <TextView
-        android:id="@+id/forum_id_tv"
-        android:layout_margin="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="30dp"
-        android:text="forum-c9f8235ea4" />
-    <TextView
-        android:id="@+id/chat_test"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-</LinearLayout>

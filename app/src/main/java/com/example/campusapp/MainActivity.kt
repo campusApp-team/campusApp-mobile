@@ -3,25 +3,20 @@ package com.example.campusapp
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.navOptions
-import com.example.campusapp.ui.main.event.EventFragmentArgs
-import com.example.campusapp.ui.main.event.EventListFragment
-import com.example.campusapp.ui.main.event.EventListFragmentDirections
-import com.example.campusapp.ui.main.forum.ForumListFragment
-import com.example.campusapp.ui.main.forum.ForumListFragmentDirections
-import com.example.campusapp.ui.main.project.ProjectFragmentArgs
-import com.example.campusapp.ui.main.project.ProjectListFragment
-import com.example.campusapp.ui.main.project.ProjectListFragmentDirections
 import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayout
-
+import com.example.campusapp.ui.main.event.EventListFragment
+import com.example.campusapp.ui.main.event.EventListFragmentDirections
+import com.example.campusapp.ui.main.forum.ForumListFragment
+import com.example.campusapp.ui.main.forum.ForumListFragmentDirections
+import com.example.campusapp.ui.main.project.ProjectListFragment
+import com.example.campusapp.ui.main.project.ProjectListFragmentDirections
 
 class MainActivity : AppCompatActivity(),
     ProjectListFragment.OnProjectFragmentInteractionListener,
@@ -44,7 +39,6 @@ class MainActivity : AppCompatActivity(),
         navController = host.navController
 
         setupUI()
-
     }
 
     override fun onBackPressed() {
@@ -126,7 +120,7 @@ class MainActivity : AppCompatActivity(),
         })
         bottomAppBar = findViewById(R.id.bottom)
         bottomAppBar.setNavigationOnClickListener {
-            // TODO 4 : account details bottom sheet
+            // TOD : account details bottom sheet
             Toast.makeText(this,"todo : Account bottomsheet",Toast.LENGTH_SHORT).show()
         }
 

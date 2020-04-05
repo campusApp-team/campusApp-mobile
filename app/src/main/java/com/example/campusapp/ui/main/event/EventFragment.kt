@@ -24,6 +24,5 @@ class EventFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val safeArgs: EventFragmentArgs by navArgs()
         event_id_tv.text = safeArgs.eventId
-
     }
 }

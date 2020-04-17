@@ -11,8 +11,15 @@ object DataRef {
     val storage = Firebase.storage
 //    private var forumsDocSnap: List<DocumentSnapshot> = listOf()
 //    private var projectsDocSnap: List<DocumentSnapshot> = listOf()
+    const val ANON_USERNAME = "Anonymous"
+
     const val FORUMS_COLLECTION = "forums"
+    const val FORUMS_THREADS = "threads"
+
     const val FORUMS_MESSAGES = "messages"
+    const val MESSAGES_SENDER = "sender"
+    const val MESSAGES_TEXT = "text"
+    const val MESSAGES_TIMESTAMP = "timestamp"
 
     const val PROJECTS_COLLECTION = "projects"
     const val EVENTS_COLLECTION = "events"

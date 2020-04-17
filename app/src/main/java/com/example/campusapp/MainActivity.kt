@@ -1,7 +1,5 @@
 package com.example.campusapp
 
-import android.app.Activity
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -9,22 +7,18 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.navOptions
-import com.example.campusapp.ui.main.AccountBottomFragment
+import com.example.campusapp.backend.DataRef.FORUMS_COLLECTION
+import com.example.campusapp.ui.main.AccountBtmNav
 import com.example.campusapp.ui.main.event.EventListFragment
 import com.example.campusapp.ui.main.event.EventListFragmentDirections
 import com.example.campusapp.ui.main.forum.ForumListFragment
 import com.example.campusapp.ui.main.forum.ForumListFragmentDirections
 import com.example.campusapp.ui.main.project.ProjectListFragment
 import com.example.campusapp.ui.main.project.ProjectListFragmentDirections
-import com.firebase.ui.auth.AuthUI
-import com.firebase.ui.auth.IdpResponse
 import com.google.android.material.bottomappbar.BottomAppBar
-import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayout
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
+import kotlin.LazyThreadSafetyMode.NONE
 
 class MainActivity : AppCompatActivity(),
     ProjectListFragment.OnProjectFragmentInteractionListener,
@@ -37,7 +31,10 @@ class MainActivity : AppCompatActivity(),
     lateinit var fab: FloatingActionButton
     lateinit var tabLayout: TabLayout
     lateinit var navController: NavController
-    lateinit var btmSheet: AccountBottomFragment
+//    lateinit var btmSheet: AccountBtmNav
+    private val btmSheet: AccountBtmNav by lazy(NONE) {
+        supportFragmentManager.findFragmentById(R.id.bottom_nav_drawer) as AccountBtmNav
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,9 +46,7 @@ class MainActivity : AppCompatActivity(),
 
         setupUI()
 
-
     }
-
 
     override fun onBackPressed() {
         when(navController.currentDestination!!.id){
@@ -71,12 +66,13 @@ class MainActivity : AppCompatActivity(),
 //        alert.show()
     }
 
-    override fun onForumFragmentInteraction(id: String) {
-        val action = ForumListFragmentDirections.viewDetails(id)
+    override fun onForumFragmentInteraction(id: String, titlePath: String) {
+        val reference = "$FORUMS_COLLECTION/$id"
+        val action = ForumListFragmentDirections.viewDetails(reference,titlePath)
         navController.navigate(action)
         tabLayout.visibility = View.INVISIBLE
+        btmAppBar.visibility = View.INVISIBLE
         fab.hide()
-//        bottomAppBar.performHide()
     }
 
     override fun onProjectFragmentInteraction(id: String) {
@@ -94,7 +90,6 @@ class MainActivity : AppCompatActivity(),
     }
 
     private fun setupUI(){
-        btmSheet = AccountBottomFragment()
         val options = navOptions {
             anim {
                 enter = R.anim.fade_in
@@ -112,8 +107,7 @@ class MainActivity : AppCompatActivity(),
                     else -> Toast.makeText(applicationContext,"Events",Toast.LENGTH_SHORT).show()
                 }
             }
-            override fun onTabUnselected(tab: TabLayout.Tab) {
-            }
+            override fun onTabUnselected(tab: TabLayout.Tab) { }
             override fun onTabSelected(tab: TabLayout.Tab) {
                 when(tabLayout.selectedTabPosition){
                     0 -> {
@@ -133,9 +127,9 @@ class MainActivity : AppCompatActivity(),
         })
         btmAppBar = findViewById(R.id.bottom)
         btmAppBar.setNavigationOnClickListener {
-            // TODO : account details bottom sheet
-            btmSheet.show(supportFragmentManager,AccountBottomFragment.TAG)
-            Toast.makeText(this,"todo : Account bottomsheet",Toast.LENGTH_SHORT).show()
+            btmSheet.toggle()
+            fab.hide()
+//            Toast.makeText(this,"tod Account bottomsheet",Toast.LENGTH_SHORT).show()
         }
 
         fab = findViewById(R.id.fab)
@@ -145,8 +139,5 @@ class MainActivity : AppCompatActivity(),
 //                .setAction("Action", null).show()
 //        }
     }
-
-
-
 
 }

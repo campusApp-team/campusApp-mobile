@@ -1,46 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.main.AccountBottomFragment">
-<!--    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"-->
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginBottom="@dimen/bottom_app_bar_height"
+    tools:context=".ui.main.AccountBtmNav">
 
-    <!-- TODO Thanveer : Design Bottom Sheet for Account Details -->
-    <LinearLayout
-        android:id="@+id/bottom_account_sheet"
-        android:orientation="vertical"
+    <View
+        android:id="@+id/scrim_view"
+        android:layout_marginTop="@dimen/bottom_app_bar_height"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="20dp">
-        <ImageView
-            android:src="@mipmap/ic_launcher"
-            android:layout_gravity="center"
-            android:layout_margin="17dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-        <TextView
-            android:layout_gravity="center"
-            android:textSize="30dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Tester Testerson" />
-        <TextView
-            android:layout_gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Student"
-            android:layout_margin="20dp"/>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/sign_in_btn"
-            android:layout_gravity="center"
-            android:text="Sign In"/>
-        <FrameLayout
+        android:visibility="gone"
+        android:alpha="0.8"
+        android:background="?attr/scrimBackground"/>
+    <FrameLayout
+        android:background="@color/colorPrimarySurface"
+        android:id="@+id/background_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/bottom_sheet_behavior"
+        app:behavior_hideable="true"
+        app:behavior_skipCollapsed="true"
+        app:behavior_halfExpandedRatio="0.3">
+        <!-- TODO Thanveer : Design Bottom Sheet for Account Details -->
+        <!--Container to act as the drawer's foreground container and hold all navigation-->
+        <LinearLayout
+            android:padding="17dp"
             android:layout_width="match_parent"
-            android:layout_height="500dp"/>
-    </LinearLayout>
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <LinearLayout
+                android:orientation="horizontal"
+                android:id="@+id/foreground_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:src="@mipmap/ic_launcher"
+                    android:layout_margin="17dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <LinearLayout
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/username_tv_bottom"
+                        android:textSize="30dp"
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Anonymous" />
+                    <TextView
+                        android:id="@+id/state"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Student"/>
+                </LinearLayout>
 
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <com.google.android.material.chip.Chip
+                    android:layout_marginEnd="5dp"
+                    android:clickable="true"
+                    android:text="android"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <com.google.android.material.chip.Chip
+                    android:layout_marginEnd="5dp"
+                    android:text="madiyan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <com.google.android.material.chip.Chip
+                    android:layout_marginEnd="5dp"
+                    android:text="procrastination"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_margin="13dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                app:cardCornerRadius="17dp"
+                android:id="@+id/sign_in_btn">
+                <TextView
+                    android:id="@+id/sign_in_tv"
+                    android:layout_margin="13dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Sign In"
+                    android:textSize="15dp"/>
+            </com.google.android.material.card.MaterialCardView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/lorem_ipsum"/>
+        </LinearLayout>
+    </FrameLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

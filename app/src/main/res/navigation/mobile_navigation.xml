@@ -52,9 +52,17 @@
         android:label="fragment_forum"
         tools:layout="@layout/forum_detail">
         <argument
-            android:name="forum_id"
+            android:name="reference"
             app:argType="string"
             android:defaultValue="0template"/>
+        <argument
+            android:name="titlePath"
+            app:argType="string"
+            />
+<!--        TODO nested forums-->
+<!--        <action-->
+<!--            android:id="@+id/view_details"-->
+<!--            app:destination="@id/forum_dest" />-->
     </fragment>
     <fragment
         android:id="@+id/project_dest"

@@ -76,7 +76,7 @@ class ForumListFragment : Fragment() {
      */
     interface OnForumFragmentInteractionListener {
         // TOD Update argument type and name
-        fun onForumFragmentInteraction(id: String)
+        fun onForumFragmentInteraction(id: String, path:String)
     }
 
     // ithinte onnum aavashyilla....pinne oyvaakkaam

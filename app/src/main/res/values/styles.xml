@@ -11,7 +11,6 @@
         <item name="colorOnSecondary">@color/colorOnSecondary</item>
         <item name="colorPrimarySurface">@color/colorPrimarySurface</item>
         <item name="colorOnPrimarySurface">@color/colorOnPrimarySurface</item>
-        <item name="bottomSheetDialogTheme">@style/ModalBottomSheetDialog</item>
     </style>
 
     <style name="AlertDialogueCustom" parent="Theme.MaterialComponents.DayNight.Dialog.Alert">
@@ -27,18 +26,6 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar"/> <!--AppCompat.Dark.ActionBar" -->
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.MaterialComponents.Light"/> <!--AppCompat.Light" -->
-
-    <style name="ModalBottomSheet" parent="Widget.MaterialComponents.BottomSheet.Modal">
-        <!-- Apply attributes here -->
-        <item name="behavior_hideable">true</item>
-        <item name="behavior_skipCollapsed">true</item>
-        <item name="behavior_fitToContents">false</item>
-        <item name="behavior_peekHeight">400dp</item>
-    </style>
-
-    <style name="ModalBottomSheetDialog" parent="ThemeOverlay.MaterialComponents.Light.BottomSheetDialog">
-        <item name="bottomSheetStyle">@style/ModalBottomSheet</item>
-    </style>
 
 
 </resources>

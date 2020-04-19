@@ -1,25 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- TODO Thanveer: Update forum layout -->
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<!-- layout for a forum detail / discussion-->
+<LinearLayout
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     tools:context=".ui.main.forum.ForumFragment"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/chat_recycler"
+    android:orientation="vertical"
+    android:layout_height="match_parent" android:layout_width="match_parent">
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scrollbars="vertical"
-        tools:itemCount="10"
-        tools:listitem="@layout/chat_tv_item" />
-    <androidx.core.widget.ContentLoadingProgressBar
-        android:id="@+id/chat_progress_bar"
-        android:layout_width="200dp"
+        android:layout_weight="1"
+        android:layout_height="0dp"
+        android:orientation="vertical">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/_recycler_chat"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical"
+            tools:itemCount="10"
+            tools:listitem="@layout/chat_tv_item" />
+        <androidx.core.widget.ContentLoadingProgressBar
+            android:id="@+id/progress_bar_chat"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            android:layout_gravity="center"
+            android:progressTint="@color/colorSecondaryVariant"
+            style="?android:attr/progressBarStyleHorizontal"/>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    <!--        todo empty view for message-->
+    <TextView
+        android:layout_marginBottom="20dp"
+        android:id="@+id/forum_empty_view_msg"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:indeterminate="true"
-        android:layout_gravity="center"
-        android:progressTint="@color/colorSecondaryVariant"
-        style="?android:attr/progressBarStyleHorizontal"/>
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+        android:layout_gravity="center_horizontal"
+        android:text=" No messages in this forum \n Type below to start messaging..."/>
+    <LinearLayout
+        android:layout_gravity="bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <androidx.cardview.widget.CardView
+            app:cardCornerRadius="20dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_height="wrap_content">
+            <EditText
+                android:defaultFocusHighlightEnabled="false"
+                android:id="@+id/et_message"
+                android:hint=" type a message"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                />
+        </androidx.cardview.widget.CardView>
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/send_btn_message"
+            app:fabCustomSize="43dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/ic_send"/>
+    </LinearLayout>
+
+</LinearLayout>
 

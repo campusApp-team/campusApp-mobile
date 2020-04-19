@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimarySurface">#00FFA6</color>
+    <color name="colorPrimarySurface">#FFFFFF</color>
     <color name="colorOnPrimarySurface">#FF0000</color>
     <!--  FAB  -->
     <color name="colorSecondary">#111</color>

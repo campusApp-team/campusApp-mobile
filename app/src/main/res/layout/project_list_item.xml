@@ -8,7 +8,7 @@
     app:cardCornerRadius="9dp"
     app:cardElevation="3dp"
     style="@style/Widget.MaterialComponents.CardView">
-    <!--TODO Thanveer : Design the list_item for project catalogue-->
+    <!-- list_item for project catalogue-->
     <!--ref:
         https://in.pinterest.com/pin/6544361936816272/
         https://material.io/components/cards/

@@ -17,7 +17,6 @@
             app:exitAnim="@anim/fade_out"
             app:popEnterAnim="@anim/fade_in"
             app:popExitAnim="@anim/fade_out" />
-
     </fragment>
     <fragment
         android:id="@+id/projectlist_dest"
@@ -52,9 +51,16 @@
         android:label="fragment_forum"
         tools:layout="@layout/forum_detail">
         <argument
-            android:name="forum_id"
+            android:name="reference"
             app:argType="string"
             android:defaultValue="0template"/>
+        <argument
+            android:name="titlePath"
+            app:argType="string"
+            />
+        <action
+            android:id="@+id/subforum_details"
+            app:destination="@id/forum_dest" />
     </fragment>
     <fragment
         android:id="@+id/project_dest"

@@ -32,7 +32,7 @@ class ForumsRecyclerViewAdapter(
         mOnClickListener = View.OnClickListener { v ->
             val item = v.tag as String
             // Notify the active callbacks interface (the activity) that an item has been selected.
-            mListener?.onForumFragmentInteraction(item)
+            mListener?.onForumFragmentInteraction(item, ViewHolder(v).mTitle.text.toString())
         }
         db.collection(DataRef.FORUMS_COLLECTION)
             .addSnapshotListener { value, e ->

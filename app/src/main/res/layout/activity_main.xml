@@ -79,4 +79,10 @@
         </com.google.android.material.tabs.TabLayout>
     </com.google.android.material.bottomappbar.BottomAppBar>
 
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/bottom_nav_drawer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:name="com.example.campusapp.ui.main.AccountBtmNav"/>
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -6,7 +6,12 @@
     <string name="tab_text_events">events</string>
 
 
-
     <!--  String key for firestore template data  -->
     <string name="firebase_template">0template</string>
+
+    <string name="lorem_ipsum">
+        Invocation of BottomSheetBehavior\'s setState ends with synchronous or asynchronous call of startSettlingAnimation(child, state). And there is no way to override these methods behavior cause setState is final and startSettlingAnimation has package visible modifier. Check the sources for more information.I have problems with the same, but in a bit different way - my UI state changes setHideable to false before that settling animation invokes, so I\'m getting IllegalStateException there. I will consider usage of BottomSheetCallback to manage this properly.—Viacheslav
+        Invocation of BottomSheetBehavior\'s setState ends with synchronous or asynchronous call of startSettlingAnimation(child, state). And there is no way to override these methods behavior cause setState is final and startSettlingAnimation has package visible modifier. Check the sources for more information.I have problems with the same, but in a bit different way - my UI state changes setHideable to false before that settling animation invokes, so I\'m getting IllegalStateException there. I will consider usage of BottomSheetCallback to manage this properly.—Viacheslav
+        Invocation of BottomSheetBehavior\'s setState ends with synchronous or asynchronous call of startSettlingAnimation(child, state). And there is no way to override these methods behavior cause setState is final and startSettlingAnimation has package visible modifier. Check the sources for more information.I have problems with the same, but in a bit different way - my UI state changes setHideable to false before that settling animation invokes, so I\'m getting IllegalStateException there. I will consider usage of BottomSheetCallback to manage this properly.—Viacheslav
+    </string>
 </resources>

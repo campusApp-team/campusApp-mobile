@@ -1,5 +1,6 @@
 package com.example.campusapp.ui.main.forum
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -13,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.campusapp.R
 import com.example.campusapp.backend.DataRef.ANON_USERNAME
 import com.example.campusapp.backend.DataRef.FORUMS_MESSAGES
-import com.example.campusapp.backend.DataRef.FORUMS_THREADS
+import com.example.campusapp.backend.DataRef.FORUMS_SUBFORUMS
 import com.example.campusapp.backend.DataRef.MESSAGES_SENDER
 import com.example.campusapp.backend.DataRef.MESSAGES_TEXT
 import com.example.campusapp.backend.DataRef.MESSAGES_TIMESTAMP
@@ -29,7 +30,6 @@ import kotlinx.android.synthetic.main.forum_detail.*
 class ForumFragment : Fragment() {
     private var messagesDoc: List<DocumentSnapshot> = listOf()
     private var subforumDoc: List<DocumentSnapshot> = listOf()
-    private val TAG = "ForumFragment"
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var viewAdapter: MessageAdapter
@@ -38,6 +38,7 @@ class ForumFragment : Fragment() {
     private lateinit var titlePath: String
 
     private var user:FirebaseUser? = null
+    private var listener: OnSubforumInteractionListener? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -82,10 +83,10 @@ class ForumFragment : Fragment() {
             db.collection("$reference/$FORUMS_MESSAGES/")
                 .add(data)
                 .addOnSuccessListener { documentReference ->
-                    Log.d(TAG, "DocumentSnapshot written with ID: ${documentReference.id}")
+                    Log.d(this.javaClass.simpleName, "DocumentSnapshot written with ID: ${documentReference.id}")
                 }
                 .addOnFailureListener { e ->
-                    Log.w(TAG, "Error adding document", e)
+                    Log.w(this.javaClass.simpleName, "Error adding document", e)
                     et_message.setText(msg)
                     Toast.makeText(context, "Error sending message", Toast.LENGTH_SHORT).show()
                 }
@@ -95,49 +96,91 @@ class ForumFragment : Fragment() {
 
     private fun updateUI(view:View) {
         viewManager = LinearLayoutManager(context)
-        viewAdapter = MessageAdapter(messagesDoc, subforumDoc, reference, titlePath)
+        viewAdapter = MessageAdapter(listener, messagesDoc, subforumDoc, reference, titlePath)
 
         recyclerView = view.findViewById<RecyclerView>(R.id._recycler_chat).apply {
             layoutManager = viewManager
             adapter = viewAdapter
         }
 
-        // retrieving messages
-        db.collection("$reference/$FORUMS_THREADS")
+        var readStatus = 0
+        // retrieve sub threads
+        db.collection("$reference/$FORUMS_SUBFORUMS")
             .addSnapshotListener{ value, e ->
                 if (progress_bar_chat != null){
-                    if (messagesDoc.isNotEmpty()){
+                    if (readStatus==1){
                         progress_bar_chat.visibility = View.INVISIBLE
+                    }else{
+                        readStatus++
                     }
                 }
                 if (e != null) {
-                    Log.w(TAG, "Listen failed.", e)
+                    Log.w(this.javaClass.simpleName, "Listen failed.", e)
                     return@addSnapshotListener
                 }
-                if (value != null && !value.isEmpty) {
-                    subforumDoc = value.documents
-//                    for (doc in mDoc) { Log.v(TAG, "${doc.id} -> ${doc.get("text")}") }
+                if (value != null){
+                    if( !value.isEmpty) {
+                        subforumDoc = value.documents
+//                    for (doc in mDoc) { Log.v(this.javaClass.simpleName, "${doc.id} -> ${doc.get("text")}") }
+                    }
                 }
                 viewAdapter.updateSubForumsData(subforumDoc)
             }
 
+        // retrieve messages
         db.collection("$reference/$FORUMS_MESSAGES")
             .orderBy(MESSAGES_TIMESTAMP, Query.Direction.ASCENDING)
             .addSnapshotListener { value, e ->
                 if (progress_bar_chat != null){
-                    if (subforumDoc.isNotEmpty()){
+                    if (readStatus==1){
                         progress_bar_chat.visibility = View.INVISIBLE
+                    }else{
+                        readStatus++
                     }
                 }
                 if (e != null) {
-                    Log.w(TAG, "Listen failed.", e)
+                    Log.w(this.javaClass.simpleName, "Listen failed.", e)
                     return@addSnapshotListener
                 }
-                if (value != null && !value.isEmpty) {
-                    messagesDoc = value.documents
-//                    for (doc in mDoc) { Log.v(TAG, "${doc.id} -> ${doc.get("text")}") }
+                if (value != null){
+                    if( !value.isEmpty) {
+                        messagesDoc = value.documents
+                        forum_empty_view_msg.visibility = View.GONE
+//                    for (doc in mDoc) { Log.v(this.javaClass.simpleName, "${doc.id} -> ${doc.get("text")}") }
+                    }else{
+                        forum_empty_view_msg.visibility = View.VISIBLE
+                    }
                 }
                 viewAdapter.updateMessagesData(messagesDoc)
             }
     }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        if (context is OnSubforumInteractionListener) {
+            listener = context
+        } else {
+            throw RuntimeException(context.toString() + " must implement OnListFragmentInteractionListener")
+        }
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        listener = null
+    }
+
+    /**
+     * This interface must be implemented by activities that contain this
+     * fragment to allow an interaction in this fragment to be communicated
+     * to the activity and potentially other fragments contained in that
+     * activity.
+     *
+     * See the Android Training
+     * [Communicating with Other Fragments](http://developer.android.com/training/basics/fragments/communicating.html)
+     * for more information.
+     */
+    interface OnSubforumInteractionListener {
+        fun onSubForumClicked(reference: String, titlePath:String)
+    }
+
 }

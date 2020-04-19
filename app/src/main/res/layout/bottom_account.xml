@@ -24,7 +24,7 @@
         app:behavior_hideable="true"
         app:behavior_skipCollapsed="true"
         app:behavior_halfExpandedRatio="0.3">
-        <!-- TODO Thanveer : Design Bottom Sheet for Account Details -->
+        <!-- only change code below this : Account Details Sheet-->
         <!--Container to act as the drawer's foreground container and hold all navigation-->
         <LinearLayout
             android:padding="17dp"
@@ -48,7 +48,7 @@
                     android:orientation="vertical">
                     <TextView
                         android:id="@+id/username_tv_bottom"
-                        android:textSize="30dp"
+                        android:textSize="30sp"
                         android:layout_gravity="center"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -96,7 +96,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Sign In"
-                    android:textSize="15dp"/>
+                    android:textSize="15sp"/>
             </com.google.android.material.card.MaterialCardView>
             <TextView
                 android:layout_width="match_parent"

@@ -17,7 +17,6 @@
             app:exitAnim="@anim/fade_out"
             app:popEnterAnim="@anim/fade_in"
             app:popExitAnim="@anim/fade_out" />
-
     </fragment>
     <fragment
         android:id="@+id/projectlist_dest"
@@ -59,10 +58,9 @@
             android:name="titlePath"
             app:argType="string"
             />
-<!--        TODO nested forums-->
-<!--        <action-->
-<!--            android:id="@+id/view_details"-->
-<!--            app:destination="@id/forum_dest" />-->
+        <action
+            android:id="@+id/subforum_details"
+            app:destination="@id/forum_dest" />
     </fragment>
     <fragment
         android:id="@+id/project_dest"

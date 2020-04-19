@@ -6,7 +6,6 @@
     android:orientation="vertical"
     tools:context=".ui.main.event.EventFragment">
 
-    <!-- TODO Thanveer: Update blank event fragment layout -->
     <TextView
         android:layout_margin="20dp"
         android:layout_width="match_parent"

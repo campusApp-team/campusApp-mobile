@@ -159,7 +159,7 @@ class AccountBtmNav : Fragment() {
     }
 
     fun getUserData(){
-//        TODO fetch user details and return to mainActivity
+//        TOD fetch user details and return to mainActivity
     }
 
     companion object {

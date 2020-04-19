@@ -18,9 +18,7 @@ import com.example.campusapp.R
  */
 class ForumListFragment : Fragment() {
 
-    // TOD: Customize parameters
     private var columnCount = 2
-
     private var listener: OnForumFragmentInteractionListener? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,10 +39,7 @@ class ForumListFragment : Fragment() {
         if (view is RecyclerView) {
             with(view) {
                 layoutManager = StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL)
-                adapter =
-                    ForumsRecyclerViewAdapter(
-                        listener
-                    )
+                adapter = ForumsRecyclerViewAdapter(listener)
             }
         }
         return view
@@ -75,8 +70,7 @@ class ForumListFragment : Fragment() {
      * for more information.
      */
     interface OnForumFragmentInteractionListener {
-        // TOD Update argument type and name
-        fun onForumFragmentInteraction(id: String, path:String)
+        fun onForumFragmentInteraction(id: String, titlePath:String)
     }
 
     // ithinte onnum aavashyilla....pinne oyvaakkaam

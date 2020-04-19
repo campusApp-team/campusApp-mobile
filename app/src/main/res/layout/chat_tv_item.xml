@@ -7,7 +7,7 @@
     android:layout_marginBottom="7dp"
     android:layout_marginStart="13dp"
     app:cardCornerRadius="7dp">
-    <!--  TODO Thanveer : Design layout for message view  -->
+
     <LinearLayout
         android:padding="7dp"
         android:orientation="vertical"
@@ -21,7 +21,7 @@
         <TextView
             android:id="@+id/date_tv_chat"
             android:textColor="#aaa"
-            android:textSize="9dp"
+            android:textSize="9sp"
             android:text="29/09/2020"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- TODO Thanveer: Update forum layout -->
+<!-- layout for a forum detail / discussion-->
 <LinearLayout
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -28,6 +28,14 @@
             android:progressTint="@color/colorSecondaryVariant"
             style="?android:attr/progressBarStyleHorizontal"/>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    <!--        todo empty view for message-->
+    <TextView
+        android:layout_marginBottom="20dp"
+        android:id="@+id/forum_empty_view_msg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text=" No messages in this forum \n Type below to start messaging..."/>
     <LinearLayout
         android:layout_gravity="bottom"
         android:layout_width="match_parent"

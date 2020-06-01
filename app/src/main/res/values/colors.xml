@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--todo : follow material design guidelines-->
 <resources>
     <color name="colorPrimary">#FCFCFC</color>
     <color name="colorPrimaryVariant">#DCDCDC</color>

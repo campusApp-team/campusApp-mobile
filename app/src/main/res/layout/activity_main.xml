@@ -19,6 +19,7 @@
             app:title="@string/app_name"
             />
         <!--  todo : create menu for forum detail frag (upvote) -->
+
         <!--            app:menu="@menu/bottom_navigation_menu"-->
         <!--            style="@style/Widget.MaterialComponents.Toolbar.Primary"-->
         <!--            app:navigationIcon="@drawable/ic_menu_24dp"-->

@@ -1,12 +1,14 @@
 package com.example.campusapp.ui.main.forum
 
 import android.content.Context
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -19,6 +21,7 @@ import com.example.campusapp.backend.DataRef.MESSAGES_SENDER
 import com.example.campusapp.backend.DataRef.MESSAGES_TEXT
 import com.example.campusapp.backend.DataRef.MESSAGES_TIMESTAMP
 import com.example.campusapp.backend.DataRef.db
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.Timestamp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -34,6 +37,7 @@ class ForumFragment : Fragment() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var viewAdapter: MessageAdapter
     private lateinit var viewManager: RecyclerView.LayoutManager
+    private lateinit var sentButton: FloatingActionButton
     private lateinit var reference: String
     private lateinit var titlePath: String
 
@@ -53,6 +57,7 @@ class ForumFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
         user = FirebaseAuth.getInstance().currentUser
         var username = ANON_USERNAME
         if(user==null){
@@ -62,7 +67,22 @@ class ForumFragment : Fragment() {
         }
 
         progress_bar_chat.visibility = View.VISIBLE
-        et_message.requestFocus()
+        et_message.addTextChangedListener {
+            if(it!!.isEmpty()){
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    send_btn_message.setImageDrawable(getResources().getDrawable(R.drawable.ic_fab, context?.theme))
+                } else {
+                    send_btn_message.setImageDrawable(getResources().getDrawable(R.drawable.ic_fab))
+
+                }
+            }else{
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    send_btn_message.setImageDrawable(getResources().getDrawable(R.drawable.ic_send, context?.theme))
+                } else {
+                    send_btn_message.setImageDrawable(getResources().getDrawable(R.drawable.ic_send))
+                }
+            }
+        }
         send_btn_message.setOnClickListener {
             sentMessage(username)
         }
@@ -98,7 +118,7 @@ class ForumFragment : Fragment() {
         viewManager = LinearLayoutManager(context)
         viewAdapter = MessageAdapter(listener, messagesDoc, subforumDoc, reference, titlePath)
 
-        recyclerView = view.findViewById<RecyclerView>(R.id._recycler_chat).apply {
+        recyclerView = view.findViewById<RecyclerView>(R.id.forum_recycler_chat).apply {
             layoutManager = viewManager
             adapter = viewAdapter
         }
@@ -145,10 +165,10 @@ class ForumFragment : Fragment() {
                 if (value != null){
                     if( !value.isEmpty) {
                         messagesDoc = value.documents
-                        forum_empty_view_msg.visibility = View.GONE
+                        forum_empty_view_msg?.visibility = View.GONE
 //                    for (doc in mDoc) { Log.v(this.javaClass.simpleName, "${doc.id} -> ${doc.get("text")}") }
                     }else{
-                        forum_empty_view_msg.visibility = View.VISIBLE
+                        forum_empty_view_msg?.visibility = View.VISIBLE
                     }
                 }
                 viewAdapter.updateMessagesData(messagesDoc)

@@ -16,7 +16,7 @@
         android:alpha="0.8"
         android:background="?attr/scrimBackground"/>
     <FrameLayout
-        android:background="@color/colorPrimarySurface"
+        android:background="@color/background"
         android:id="@+id/background_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

@@ -6,8 +6,6 @@
     android:name="com.example.campusapp.ui.main.forumFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginLeft="7dp"
-    android:layout_marginRight="7dp"
     android:scrollbars="vertical"
     app:layoutManager="LinearLayoutManager"
     tools:context=".ui.main.forum.ForumListFragment"

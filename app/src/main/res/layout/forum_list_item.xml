@@ -10,8 +10,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardCornerRadius="7dp"
-        app:cardElevation="7dp"
-        android:layout_marginBottom="12dp"
+        app:cardElevation="5dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="10dp"
         android:layout_marginLeft="7dp"
         android:layout_marginRight="7dp">
         <LinearLayout
@@ -29,9 +30,10 @@
                 android:id="@+id/forum_bar_list_item"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
-                android:background="@color/colorSecondaryVariant"
                 android:scaleType="centerCrop"
-                android:src="@drawable/ic_launcher_foreground"/>
+                android:src="@drawable/ic_launcher_foreground"
+                android:background="@color/colorPrimaryVariant"
+                />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

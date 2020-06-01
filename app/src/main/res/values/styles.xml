@@ -3,14 +3,17 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorPrimaryVariant">@color/colorPrimaryVariant</item>
         <item name="colorOnPrimary">@color/colorOnPrimary</item>
         <item name="colorSecondary">@color/colorSecondary</item>
         <item name="colorSecondaryVariant">@color/colorSecondaryVariant</item>
         <item name="colorOnSecondary">@color/colorOnSecondary</item>
-        <item name="colorPrimarySurface">@color/colorPrimarySurface</item>
-        <item name="colorOnPrimarySurface">@color/colorOnPrimarySurface</item>
+        <item name="colorError">@color/colorError</item>
+        <item name="colorOnError">@color/colorOnError</item>
+        <item name="colorSurface">@color/colorSurface</item>
+        <item name="colorOnSurface">@color/colorOnSurface</item>
+        <item name="android:colorBackground">@color/background</item>
+        <item name="colorOnBackground">@color/colorOnBackground</item>
     </style>
 
     <style name="AlertDialogueCustom" parent="Theme.MaterialComponents.DayNight.Dialog.Alert">
@@ -23,9 +26,18 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar"/> <!--AppCompat.Dark.ActionBar" -->
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar">
+        <item name="colorPrimary">@color/background</item>
+        <item name="colorOnPrimary">@color/colorOnBackground</item>
+    </style><!--AppCompat.Dark.ActionBar" -->
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.MaterialComponents.Light"/> <!--AppCompat.Light" -->
 
+    <style name="BottomAppBarCustom" parent="AppTheme">
+        <item name="android:backgroundTint">@color/colorSecondary</item>
+    </style>
 
+    <style name="TabLayoutCustom" parent="BottomAppBarCustom">
+        <item name="colorOnBackground">@color/colorError</item>
+    </style>
 </resources>

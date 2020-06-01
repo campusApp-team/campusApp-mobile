@@ -9,19 +9,32 @@
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        android:theme="@style/AppTheme.AppBarOverlay"
-        app:liftOnScroll="true">
-        <TextView
-            android:id="@+id/title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:minHeight="?actionBarSize"
-            android:padding="@dimen/appbar_padding"
-            android:text="@string/app_name"
-            android:textColor="@color/colorOnPrimary"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"/><!--Widget.AppCompat.Toolbar.Title" /-->
+        app:liftOnScroll="true"
+        >
+        <!--        android:theme="@style/AppTheme.AppBarOverlay"-->
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/topAppBar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:title="@string/app_name"
+            />
+        <!--  todo : create menu for forum detail frag (upvote) -->
+
+        <!--            app:menu="@menu/bottom_navigation_menu"-->
+        <!--            style="@style/Widget.MaterialComponents.Toolbar.Primary"-->
+        <!--            app:navigationIcon="@drawable/ic_menu_24dp"-->
+        <!--        <TextView-->
+        <!--            android:id="@+id/title"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:gravity="center"-->
+        <!--            android:minHeight="?actionBarSize"-->
+        <!--            android:padding="@dimen/appbar_padding"-->
+        <!--            android:text="@string/app_name"-->
+        <!--            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"-->
+        <!--            />-->
+        <!--        android:textColor="@color/colorOnPrimary"-->
+        <!--Widget.AppCompat.Toolbar.Title" /-->
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.fragment.app.FragmentContainerView
@@ -49,17 +62,21 @@
         app:fabCradleMargin="5dp"
         app:fabCradleRoundedCornerRadius="17dp"
         app:hideOnScroll="true"
-        android:backgroundTint="@color/colorPrimaryVariant"
-        app:navigationIcon="@drawable/ic_bab_navigation">
+        app:navigationIcon="@drawable/ic_bab_navigation"
+        style="@style/BottomAppBarCustom"
+        >
+        <!--        android:backgroundTint="@color/colorPrimaryVariant"-->
         <com.google.android.material.tabs.TabLayout
             app:tabMinWidth="40dp"
             android:id="@+id/tab_layout"
-            app:tabIconTint="@color/tab_icon_tint_selector"
-            app:tabIndicatorColor="@color/tabSelectedIconTint"
             app:tabUnboundedRipple="false"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/colorPrimaryVariant">
+            style="@style/TabLayoutCustom"
+            app:tabIconTint="@color/tab_icon_tint_selector"
+            app:tabIndicatorColor="@color/tabSelectedIconTint"
+            app:tabRippleColor="@color/colorOnPrimary"
+            >
             <com.google.android.material.tabs.TabItem
                 android:id="@+id/forum_tab"
                 android:icon="@drawable/ic_bab_forums"
@@ -75,7 +92,6 @@
                 android:icon="@drawable/ic_bab_events"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
-
         </com.google.android.material.tabs.TabLayout>
     </com.google.android.material.bottomappbar.BottomAppBar>
 

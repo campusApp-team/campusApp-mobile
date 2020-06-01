@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimarySurface">#333</color>
-    <color name="colorOnPrimarySurface">#FF0000</color>
-    <!--  FAB  -->
-    <color name="colorSecondary">#FFFFFF</color>
-    <color name="colorOnSecondary">#000000</color>
-    <!-- Bottom Bar -->
-    <color name="colorPrimaryVariant">#333</color>
+    <color name="colorPrimary">#212121</color>
+    <color name="colorPrimaryVariant">#202020</color>
+    <color name="colorOnPrimary">#C7C7C7</color>
+    <color name="colorSecondary">#385656</color>
+    <color name="colorSecondaryVariant">#03C5CA</color>
+    <color name="colorOnSecondary">#D8D8D8</color>
+    <color name="colorError">#BA2A20</color>
+    <color name="colorOnError">#D1D1D1</color>
+    <color name="colorSurface">#171717</color>
+    <color name="colorOnSurface">#212121</color>
+    <color name="colorOnBackground">#212121</color>
 
-    <color name="colorOnPrimary">#CCC</color>
-    <color name="colorSecondaryVariant">#9358F3</color>
+    <color name="background">#000000</color>
 
-    <color name="colorPrimary">#121212</color>
-    <color name="colorPrimaryDark">#101010</color>
+    <color name="tabIconTint">#B3B3B3</color>
+    <color name="tabSelectedIconTint">#FFFFFF</color>
 
-    <color name="tabIconTint">#5F5F5F</color>
-    <color name="tabSelectedIconTint">#ACACAC</color>
 </resources>

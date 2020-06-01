@@ -21,6 +21,7 @@ import com.example.campusapp.ui.main.project.ProjectListFragment
 import com.example.campusapp.ui.main.project.ProjectListFragmentDirections
 import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayout
 import kotlin.LazyThreadSafetyMode.NONE
 
@@ -166,11 +167,23 @@ class MainActivity : AppCompatActivity(),
         }
 
         fab = findViewById(R.id.fab)
-//        fab.setOnClickListener { view ->
-//            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_SHORT)
-//                .setAnchorView(fab)
-//                .setAction("Action", null).show()
-//        }
+        fab.setOnClickListener { view ->
+            when(tabLayout.selectedTabPosition) {
+                0 -> {
+                    navController.navigate(R.id.newForum_dest, null, options)
+                }
+                1 -> {
+                    navController.navigate(R.id.newProject_dest, null, options)
+                }
+                2 -> {
+                    Snackbar.make(view, "Request new event permission", Snackbar.LENGTH_SHORT)
+                        .setAnchorView(fab)
+                        .setAction("Action", null).show()
+                    navController.navigate(R.id.newEventRequest_dest, null, options)
+                }
+            }
+
+        }
     }
 
     override fun onSubForumClicked(reference: String, titlePath: String) {

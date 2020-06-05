@@ -13,7 +13,7 @@
         android:layout_height="0dp"
         android:orientation="vertical">
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/_recycler_chat"
+            android:id="@+id/forum_recycler_chat"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scrollbars="vertical"
@@ -25,8 +25,9 @@
             android:layout_height="wrap_content"
             android:indeterminate="true"
             android:layout_gravity="center"
-            android:progressTint="@color/colorSecondaryVariant"
-            style="?android:attr/progressBarStyleHorizontal"/>
+            style="?android:attr/progressBarStyleHorizontal"
+            />
+<!--        android:progressTint="@color/colorSecondaryVariant"-->
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
     <!--        todo empty view for message-->
     <TextView
@@ -58,6 +59,7 @@
                 android:layout_width="match_parent"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
+                android:inputType="text"
                 />
         </androidx.cardview.widget.CardView>
         <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -68,7 +70,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginBottom="10dp"
-            android:src="@drawable/ic_send"/>
+            android:src="@drawable/ic_fab"/>
     </LinearLayout>
 
 </LinearLayout>

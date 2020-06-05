@@ -17,6 +17,9 @@
             app:exitAnim="@anim/fade_out"
             app:popEnterAnim="@anim/fade_in"
             app:popExitAnim="@anim/fade_out" />
+        <action
+            android:id="@+id/action_forumlist_dest_to_newForum_dest"
+            app:destination="@id/newForum_dest" />
     </fragment>
     <fragment
         android:id="@+id/projectlist_dest"
@@ -30,6 +33,9 @@
             app:exitAnim="@anim/fade_out"
             app:popEnterAnim="@anim/fade_in"
             app:popExitAnim="@anim/fade_out" />
+        <action
+            android:id="@+id/action_projectlist_dest_to_newProject_dest"
+            app:destination="@id/newProject_dest" />
     </fragment>
     <fragment
         android:id="@+id/eventlist_dest"
@@ -43,6 +49,9 @@
             app:exitAnim="@anim/fade_out"
             app:popEnterAnim="@anim/fade_in"
             app:popExitAnim="@anim/fade_out" />
+        <action
+            android:id="@+id/action_eventlist_dest_to_newEventRequest_dest"
+            app:destination="@id/newEventRequest_dest" />
     </fragment>
 
     <fragment
@@ -82,4 +91,19 @@
             app:argType="string"
             android:defaultValue="0template" />
     </fragment>
+    <fragment
+        android:id="@+id/newProject_dest"
+        android:name="com.example.campusapp.ui.main.project.NewProjectFragment"
+        android:label="new_project"
+        tools:layout="@layout/project_new" />
+    <fragment
+        android:id="@+id/newForum_dest"
+        android:name="com.example.campusapp.ui.main.forum.NewForumFragment"
+        android:label="new_forum"
+        tools:layout="@layout/forum_new" />
+    <fragment
+        android:id="@+id/newEventRequest_dest"
+        android:name="com.example.campusapp.ui.main.event.NewEventRequestFragment"
+        android:label="event_request"
+        tools:layout="@layout/event_request" />
 </navigation>

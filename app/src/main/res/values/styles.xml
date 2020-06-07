@@ -26,6 +26,14 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="CustomTabLayout" parent="Widget.Design.TabLayout">
+        <item name="tabIndicatorColor">@android:color/white</item>
+        <item name="tabIndicatorHeight">3dp</item>
+        <item name="tabBackground">?attr/selectableItemBackground</item>
+        <item name="tabTextAppearance">@style/CustomTabTextAppearance</item>
+        <item name="tabSelectedTextColor">@android:color/white</item>
+    </style>
+
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar">
         <item name="colorPrimary">@color/background</item>
         <item name="colorOnPrimary">@color/colorOnBackground</item>
@@ -40,4 +48,6 @@
     <style name="TabLayoutCustom" parent="BottomAppBarCustom">
         <item name="colorOnBackground">@color/colorError</item>
     </style>
+
+    <style name="CustomTabTextAppearance"></style>
 </resources>

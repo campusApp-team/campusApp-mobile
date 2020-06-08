@@ -1,0 +1,6 @@
+<resources>
+    <string-array name="spinnerItems">
+        <item>AM</item>
+        <item>PM</item>
+    </string-array>
+</resources>

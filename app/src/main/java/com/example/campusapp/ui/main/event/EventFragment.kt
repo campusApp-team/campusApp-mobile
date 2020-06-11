@@ -23,6 +23,5 @@ class EventFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val safeArgs: EventFragmentArgs by navArgs()
-        event_id_tv.text = safeArgs.eventId
     }
 }
